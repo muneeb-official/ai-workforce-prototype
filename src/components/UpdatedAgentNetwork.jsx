@@ -11,8 +11,8 @@ const agentsData = [
     detailedDescription: "Turn data into opportunity with the B2C Lead Builder Agent — your gateway to over 800 million verified consumer profiles worldwide. Build your perfect customer persona and instantly discover real people who match it. Search by name, location, role, skills, experience, or industry, and watch as the agent delivers enriched contact lists complete with verified emails and phone numbers. Whether you're scaling outreach or targeting specific individuals, simply enter a name and LinkedIn URL to uncover direct contact details in seconds. Build smarter, reach faster, and grow your customer base effortlessly — all powered by AI precision.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["800M+ verified profiles", "Real-time data enrichment", "Global coverage", "Instant contact discovery"],
-    bgColor: "from-yellow-100 to-yellow-200",
-    iconBg: "bg-yellow-300",
+    bgColor: "from-yellow-50 to-yellow-100",
+    iconBg: "bg-yellow-200",
     customColor: "#FEF8BA"
   },
   {
@@ -24,8 +24,8 @@ const agentsData = [
     detailedDescription: "Find and connect with the businesses that matter most using the B2B Lead Builder Agent. This intelligent tool searches verified data sources to identify companies in your target industry and location, revealing the key decision-makers behind them. It enriches profiles with accurate contact details wherever available, helping your team focus on genuine prospects — not guesswork. Build stronger pipelines, speed up outreach, and give your sales team the advantage of precision-powered targeting.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Decision-maker identification", "Company intelligence", "Verified contact data", "Industry targeting"],
-    bgColor: "from-purple-100 to-purple-200",
-    iconBg: "bg-purple-500",
+    bgColor: "from-purple-50 to-purple-100",
+    iconBg: "bg-purple-200",
     customColor: "#E6CBFF"
   },
   {
@@ -38,7 +38,7 @@ const agentsData = [
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Automated workflows", "150+ leads per month", "Daily/weekly reports", "Passive generation"],
     bgColor: "from-pink-50 to-pink-100",
-    iconBg: "bg-pink-400",
+    iconBg: "bg-pink-200",
     customColor: "#FBF1F7"
   },
   {
@@ -51,7 +51,7 @@ const agentsData = [
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Multi-channel outreach", "Spam filter avoidance", "Custom templates", "Bulk processing"],
     bgColor: "from-blue-50 to-blue-100",
-    iconBg: "bg-blue-500",
+    iconBg: "bg-blue-200",
     customColor: "#DBEAFE"
   },
   {
@@ -64,7 +64,7 @@ const agentsData = [
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Voice AI technology", "Meeting booking", "Natural conversations", "24/7 operation"],
     bgColor: "from-green-50 to-green-100",
-    iconBg: "bg-green-300",
+    iconBg: "bg-green-200",
     customColor: "#DCFCE7"
   },
   {
@@ -77,7 +77,7 @@ const agentsData = [
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Professional design", "Market data integration", "Brand customization", "Multiple formats"],
     bgColor: "from-orange-50 to-red-100",
-    iconBg: "bg-red-400",
+    iconBg: "bg-red-200",
     customColor: "#FFE2E2"
   },
   {
@@ -90,7 +90,7 @@ const agentsData = [
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["SEO optimization", "Brand voice matching", "Auto-scheduling", "Content analysis"],
     bgColor: "from-indigo-100 to-indigo-200",
-    iconBg: "bg-indigo-500",
+    iconBg: "bg-indigo-200",
     customColor: "#E0E7FF"
   },
   {
@@ -103,7 +103,7 @@ const agentsData = [
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Email management", "Schedule optimization", "Project tracking", "Smart reminders"],
     bgColor: "from-teal-100 to-teal-200",
-    iconBg: "bg-teal-400",
+    iconBg: "bg-teal-200",
     customColor: "#CBFBF1"
   },
   {
@@ -116,7 +116,7 @@ const agentsData = [
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Real-time transcription", "Auto-summarization", "Action item extraction", "Multi-platform support"],
     bgColor: "from-cyan-100 to-cyan-200",
-    iconBg: "bg-cyan-400",
+    iconBg: "bg-cyan-200",
     customColor: "#B3F6FD"
   }
 ];
@@ -128,7 +128,7 @@ const AgentModal = ({ agent, isOpen, onClose }) => {
   return (
     <>
       {/* Backdrop */}
-      <div id="agents"
+      <div 
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] transition-opacity duration-300"
         onClick={onClose}
       ></div>
@@ -202,7 +202,6 @@ const AgentModal = ({ agent, isOpen, onClose }) => {
               <button 
                 className={`${agent.iconBg} text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300`}
                 onClick={() => {
-                  // Add your CTA action here
                   onClose();
                 }}
               >
@@ -216,109 +215,105 @@ const AgentModal = ({ agent, isOpen, onClose }) => {
   );
 };
 
-// Individual Agent Card Component - Original design layout
+// Individual Agent Card Component - Grid layout
 const AgentCard = ({ agent, index, isVisible, onOpenModal }) => {
-  const isLeft = index % 2 === 0;
-  
   return (
-    <div id="agents"
-      className={`mb-16 transition-all duration-1000 ease-out ${
+    <div
+      className={`transition-all duration-1000 ease-out ${
         isVisible 
-          ? 'opacity-100 translate-x-0 translate-y-0' 
-          : `opacity-0 ${isLeft ? '-translate-x-16' : 'translate-x-16'} translate-y-8`
+          ? 'opacity-100 translate-y-0 scale-100' 
+          : 'opacity-0 translate-y-12 scale-95'
       }`}
       style={{ 
-        transitionDelay: `${index * 150}ms`,
+        transitionDelay: `${index * 100}ms`,
         fontFamily: 'DM Sans'
       }}
     >
-      <div className={`flex ${isLeft ? 'justify-start' : 'justify-end'}`}>
+      <div 
+        className="relative h-full rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:scale-105 hover:-translate-y-2 group overflow-hidden"
+        style={{ backgroundColor: agent.customColor }}
+        onClick={() => onOpenModal(agent)}
+      >
+        {/* Decorative 3D blob */}
         <div 
-          className={`relative max-w-md rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:scale-105 group overflow-hidden`}
+          className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-30 transform rotate-45 group-hover:rotate-90 transition-transform duration-700 blur-sm"
           style={{ backgroundColor: agent.customColor }}
-          onClick={() => onOpenModal(agent)}
-        >
-          {/* Decorative 3D blob */}
-          <div 
-            className={`absolute -top-4 ${isLeft ? '-right-4' : '-left-4'} w-20 h-20 rounded-full opacity-30 transform rotate-45 group-hover:rotate-90 transition-transform duration-700 blur-sm`}
-            style={{ backgroundColor: agent.customColor }}
-          ></div>
-          
-          {/* Decorative dots pattern */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-20">
-            <div className="w-3 h-3 bg-white rounded-full absolute top-6 left-6"></div>
-            <div className="w-2 h-2 bg-white rounded-full absolute top-12 left-12"></div>
-            <div className="w-2.5 h-2.5 bg-white rounded-full absolute top-8 right-8"></div>
-            <div className="w-1.5 h-1.5 bg-white rounded-full absolute bottom-6 left-8"></div>
-            <div className="w-2 h-2 bg-white rounded-full absolute bottom-12 right-12"></div>
-          </div>
-
-          <div className="p-8 relative z-10">
-            {/* Icon and Avatar */}
-            <div className="flex items-start justify-between mb-6">
-              <div className={`w-16 h-16 ${agent.iconBg} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                <span className="text-2xl text-white">{agent.icon}</span>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-white/50 rounded-full blur-md"></div>
-                <img
-                  src={agent.avatar}
-                  alt={agent.title}
-                  className="relative w-14 h-14 rounded-full border-3 border-white shadow-lg object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-            </div>
-
-            {/* Content */}
-            <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-gray-900 transition-colors duration-300">
-              {agent.title}
-            </h3>
-            
-            <p className="text-gray-700 text-sm leading-relaxed mb-6 line-clamp-4">
-              {agent.briefDescription}
-            </p>
-
-            {/* Features preview */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {agent.features.slice(0, 2).map((feature, featureIndex) => (
-                <span key={featureIndex} className="bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-700 font-medium border border-white/30">
-                  {feature}
-                </span>
-              ))}
-              {agent.features.length > 2 && (
-                <span className="bg-white/40 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-600 font-medium border border-white/20">
-                  +{agent.features.length - 2} more
-                </span>
-              )}
-            </div>
-
-            {/* Learn More Button */}
-            <div className="flex items-center justify-between">
-              <span className="text-gray-700 text-sm font-medium">Learn more</span>
-              <div className="w-8 h-8 bg-white/50 hover:bg-white/70 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                <svg className="w-4 h-4 text-gray-700 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* 3D hover effect overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/10 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+        ></div>
+        
+        {/* Decorative dots pattern */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-20">
+          <div className="w-3 h-3 bg-white rounded-full absolute top-6 left-6"></div>
+          <div className="w-2 h-2 bg-white rounded-full absolute top-12 left-12"></div>
+          <div className="w-2.5 h-2.5 bg-white rounded-full absolute top-8 right-8"></div>
+          <div className="w-1.5 h-1.5 bg-white rounded-full absolute bottom-6 left-8"></div>
+          <div className="w-2 h-2 bg-white rounded-full absolute bottom-12 right-12"></div>
         </div>
+
+        <div className="p-8 relative z-10">
+          {/* Icon and Avatar */}
+          <div className="flex items-start justify-between mb-6">
+            <div className={`w-16 h-16 ${agent.iconBg} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+              <span className="text-2xl text-white">{agent.icon}</span>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-white/50 rounded-full blur-md"></div>
+              <img
+                src={agent.avatar}
+                alt={agent.title}
+                className="relative w-14 h-14 rounded-full border-3 border-white shadow-lg object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+          </div>
+
+          {/* Content */}
+          <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-gray-900 transition-colors duration-300">
+            {agent.title}
+          </h3>
+          
+          <p className="text-gray-700 text-sm leading-relaxed mb-6 line-clamp-4">
+            {agent.briefDescription}
+          </p>
+
+          {/* Features preview */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {agent.features.slice(0, 2).map((feature, featureIndex) => (
+              <span key={featureIndex} className="bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-700 font-medium border border-white/30">
+                {feature}
+              </span>
+            ))}
+            {agent.features.length > 2 && (
+              <span className="bg-white/40 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-600 font-medium border border-white/20">
+                +{agent.features.length - 2} more
+              </span>
+            )}
+          </div>
+
+          {/* Learn More Button */}
+          <div className="flex items-center justify-between">
+            <span className="text-gray-700 text-sm font-medium">Learn more</span>
+            <div className="w-8 h-8 bg-white/50 hover:bg-white/70 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+              <svg className="w-4 h-4 text-gray-700 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* 3D hover effect overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/10 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
       </div>
     </div>
   );
 };
 
-// Main Component - Simple scroll animations without hide-on-scroll-up
+// Main Component
 const ModernAgentCards = () => {
   const [visibleCards, setVisibleCards] = useState([]);
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef(null);
 
-  // Simple intersection observer - cards appear and stay visible
+  // Simple intersection observer - cards appear and stay visible.
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -381,7 +376,7 @@ const ModernAgentCards = () => {
           <div className="absolute -bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-indigo-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-20">
             <div className="inline-block bg-gradient-to-r from-blue-100 to-indigo-100 backdrop-blur-sm border border-blue-200/50 px-8 py-4 rounded-full text-blue-700 text-sm font-bold mb-8 shadow-lg">
@@ -392,8 +387,8 @@ const ModernAgentCards = () => {
             </p>
           </div>
 
-          {/* Agent Cards - Original layout */}
-          <div className="space-y-8">
+          {/* Agent Cards - Grid layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
             {agentsData.map((agent, index) => (
               <AgentCard
                 key={agent.id}
@@ -404,19 +399,6 @@ const ModernAgentCards = () => {
               />
             ))}
           </div>
-
-          {/* CTA Section */}
-          {/* <div className="text-center mt-20">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Ready to Transform Your Business?
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses already using AI agents to scale their operations
-            </p>
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              Get Started Today
-            </button>
-          </div> */}
         </div>
       </section>
 
