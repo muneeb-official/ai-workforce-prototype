@@ -43,7 +43,7 @@ const Hero = () => {
         </div>
 
         <p className="text-gray-600 mt-4 text-lg md:text-xl max-w-3xl mx-auto font-medium">
-          Our AI agents operate 24/7 to supercharge your business growth
+          Our AI agents operate 24/7 to supercharge your
         </p>
 
         <div className="mt-10">
