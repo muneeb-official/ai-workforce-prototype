@@ -176,7 +176,7 @@ const WorldMapSection = () => {
 
         {/* World Map Visualization */}
         <div className="mb-20 flex justify-center">
-          <div className="relative w-full max-w-5xl">
+          <div className="relative w-full max-w-4xl">
             <div className="relative bg-gradient-to-br from-gray-50 to-slate-100 rounded-3xl p-12 shadow-2xl border border-gray-200">
 
               {/* Background Map Image */}
@@ -201,7 +201,7 @@ const WorldMapSection = () => {
                     <circle
                       cx={region.x}
                       cy={region.y}
-                      r="8"
+                      r="40"
                       fill={region.color}
                       className={`transition-all duration-1000 ${animationTriggered ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                         }`}
@@ -213,7 +213,7 @@ const WorldMapSection = () => {
                     {/* Region label */}
                     <text
                       x={region.x}
-                      y={region.y - 80}
+                      y={region.y - 60}
                       textAnchor="middle"
                       className={`fill-gray-700 font-semibold text-[23px] transition-all duration-1000 ${animationTriggered ? 'opacity-100' : 'opacity-0'
                         }`}
@@ -227,9 +227,9 @@ const WorldMapSection = () => {
                     {/* Percentage text */}
                     <text
                       x={region.x}
-                      y={region.y - 30}
+                      y={region.y + 10}
                       textAnchor="middle"
-                      className={`fill-black font-bold text-[27px] transition-all duration-1000 ${animationTriggered ? 'opacity-100' : 'opacity-0'
+                      className={`fill-white font-bold text-[25px] transition-all duration-1000 ${animationTriggered ? 'opacity-100' : 'opacity-0'
                         }`}
                       style={{
                         transitionDelay: `${index * 300 + 1400}ms`
@@ -274,10 +274,10 @@ const WorldMapSection = () => {
         {/* Bottom Statistics Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {[
-            { title: 'Hourly', subtitle: 'data Updates', bg: 'from-blue-50 to-blue-100', text: 'text-blue-600' },
-            { title: 'CCPA & GDPR', subtitle: 'Compliant', bg: 'from-green-50 to-green-100', text: 'text-green-600' },
-            { title: 'Triple Verified', subtitle: '99% confidence', bg: 'from-purple-50 to-purple-100', text: 'text-purple-600' },
-            { title: '700M+', subtitle: 'People Data', bg: 'from-orange-50 to-orange-100', text: 'text-orange-600' }
+            { title: 'Hourly', bg: 'from-blue-100 to-blue-200', text: 'text-blue-600' },
+            { title: 'CCPA & GDPR', bg: 'from-blue-200 to-blue-300', text: 'text-blue-600' },
+            { title: 'Triple Verified', bg: 'from-blue-200 to-blue-300', text: 'text-blue-600' },
+            { title: '700M+', bg: 'from-blue-300 to-blue-400', text: 'text-blue-600' }
           ].map((stat, index) => (
             <div
               key={index}
