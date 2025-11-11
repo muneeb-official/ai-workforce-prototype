@@ -11,9 +11,9 @@ const agentsData = [
     detailedDescription: "Turn data into opportunity with the B2C Lead Builder Agent — your gateway to over 800 million verified consumer profiles worldwide. Build your perfect customer persona and instantly discover real people who match it. Search by name, location, role, skills, experience, or industry, and watch as the agent delivers enriched contact lists complete with verified emails and phone numbers. Whether you're scaling outreach or targeting specific individuals, simply enter a name and LinkedIn URL to uncover direct contact details in seconds. Build smarter, reach faster, and grow your customer base effortlessly — all powered by AI precision.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["800M+ verified profiles", "Real-time data enrichment", "Global coverage", "Instant contact discovery"],
-    bgColor: "from-yellow-50 to-yellow-100",
-    iconBg: "bg-yellow-200",
-    customColor: "#FEF8BA"
+    bgColor: "from-[#7770FF] to-[#B09CFF]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   },
   {
     id: "b2b-lead-builder",
@@ -24,9 +24,9 @@ const agentsData = [
     detailedDescription: "Find and connect with the businesses that matter most using the B2B Lead Builder Agent. This intelligent tool searches verified data sources to identify companies in your target industry and location, revealing the key decision-makers behind them. It enriches profiles with accurate contact details wherever available, helping your team focus on genuine prospects — not guesswork. Build stronger pipelines, speed up outreach, and give your sales team the advantage of precision-powered targeting.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Decision-maker identification", "Company intelligence", "Verified contact data", "Industry targeting"],
-    bgColor: "from-purple-50 to-purple-100",
-    iconBg: "bg-purple-200",
-    customColor: "#E6CBFF"
+    bgColor: "from-[#B09CFF] to-[#E6CBFF]",
+    iconBg: "bg-[#B09CFF]",
+    customColor: "#B09CFF"
   },
   {
     id: "organic-lead-builder",
@@ -37,9 +37,9 @@ const agentsData = [
     detailedDescription: "Generate leads passively with the Organic Lead Builder Agent. With our unique workflow, it builds a consistent pipeline of prospects and gathers contact details ready for outreach — all while you focus on other tasks. Simply create your target profile by name, location, role, skills, experience, or industry, and let the agent do the rest. Receive daily or weekly lead reports directly in your inbox, and watch your network grow organically — even while you sleep. Expect a minimum of 150 new leads per month, delivered effortlessly.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Automated workflows", "150+ leads per month", "Daily/weekly reports", "Passive generation"],
-    bgColor: "from-pink-50 to-pink-100",
-    iconBg: "bg-pink-200",
-    customColor: "#FBF1F7"
+    bgColor: "from-[#7770FF] to-[#E6CBFF]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   },
   {
     id: "cold-outreach",
@@ -50,9 +50,9 @@ const agentsData = [
     detailedDescription: "The Cold Outreach Agent takes the pipelines and projects you've built with our Lead Builder Agents — or allows you to import your own list — to build workflow campaigns and templates for effective prospect outreach. It helps create a touchpoint strategy to reach out to bulk prospects efficiently. Our parameters are designed to avoid spam filters. This agent also comes with two additional email domains, increasing your sending capacity. You can build workflows via Email, Telegram, or WhatsApp, and use preset templates we've created or design your own. Whatever touchpoint strategy works for you, this agent makes it easy to execute.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Multi-channel outreach", "Spam filter avoidance", "Custom templates", "Bulk processing"],
-    bgColor: "from-blue-50 to-blue-100",
-    iconBg: "bg-blue-200",
-    customColor: "#DBEAFE"
+    bgColor: "from-[#B09CFF] to-[#7770FF]",
+    iconBg: "bg-[#B09CFF]",
+    customColor: "#B09CFF"
   },
   {
     id: "call-outreach",
@@ -63,9 +63,9 @@ const agentsData = [
     detailedDescription: "The Call Outreach Agent turns every lead list into live conversations that drive results. Using advanced voice AI, it takes the pipelines you've built with our Lead Builder Agents or your own imported lists and creates dynamic calling campaigns that do the hard work for you. The agent makes intelligent outbound calls, warms up leads with natural, human-like conversations, and books meetings directly into your calendar. With built-in pacing controls and smart scheduling, it ensures every call feels personal and professional. Keep your pipeline moving, your prospects engaged, and your sales team focused on closing while your AI handles the outreach — 24/7.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Voice AI technology", "Meeting booking", "Natural conversations", "24/7 operation"],
-    bgColor: "from-green-50 to-green-100",
-    iconBg: "bg-green-200",
-    customColor: "#DCFCE7"
+    bgColor: "from-[#E6CBFF] to-[#B09CFF]",
+    iconBg: "bg-[#E6CBFF]",
+    customColor: "#E6CBFF"
   },
   {
     id: "brochure-creation",
@@ -76,9 +76,9 @@ const agentsData = [
     detailedDescription: "Bring your ideas to life with the Brochure Creation Agent — your on-demand designer that creates stunning, data-rich brochures in just minutes. From pitch decks and business plans to eBooks and branded presentations, it crafts professional materials tailored to your brand and audience. Enriched with real-time market data, local insights, and eye-catching visuals, every brochure is built to impress, inform, and convert — all without the need for a design team.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Professional design", "Market data integration", "Brand customization", "Multiple formats"],
-    bgColor: "from-orange-50 to-red-100",
-    iconBg: "bg-red-200",
-    customColor: "#FFE2E2"
+    bgColor: "from-[#7770FF] to-[#B09CFF]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   },
   {
     id: "seo-blog-engine",
@@ -89,9 +89,9 @@ const agentsData = [
     detailedDescription: "Turn your ideas into traffic-driving content with the Blog & Content Engine Agent. It scans top-ranking blogs, analyzes what performs best, and creates SEO-optimized posts in your brand's voice to attract organic leads. You can also plan and schedule LinkedIn posts for the week ahead — with auto-upload at optimal times to boost engagement. One simple prompt, a week of content, fully automated.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["SEO optimization", "Brand voice matching", "Auto-scheduling", "Content analysis"],
-    bgColor: "from-indigo-100 to-indigo-200",
-    iconBg: "bg-indigo-200",
-    customColor: "#E0E7FF"
+    bgColor: "from-[#B09CFF] to-[#E6CBFF]",
+    iconBg: "bg-[#B09CFF]",
+    customColor: "#B09CFF"
   },
   {
     id: "personal-assistant",
@@ -102,9 +102,9 @@ const agentsData = [
     detailedDescription: "Your AI-powered executive assistant that manages your emails, schedules, calls, and inquiries — drafting replies in your tone, organizing your day, and sending smart reminders through Telegram so you stay focused on high-value work. The Personal Assistant Agent features a project tracking dashboard that monitors communications and meetings in real time, displaying clear status updates and progress overviews. It mirrors your tone, categorizes messages by importance, drafts replies ready for review, and can respond automatically when you're unavailable. It also handles inbound inquiries, books meetings, sends updates, and delivers personalized summaries before each call. Fully customizable across web and Telegram, it keeps your operations organized, your communication seamless, and your time free for meaningful work.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Email management", "Schedule optimization", "Project tracking", "Smart reminders"],
-    bgColor: "from-teal-100 to-teal-200",
-    iconBg: "bg-teal-200",
-    customColor: "#CBFBF1"
+    bgColor: "from-[#E6CBFF] to-[#7770FF]",
+    iconBg: "bg-[#E6CBFF]",
+    customColor: "#E6CBFF"
   },
   {
     id: "meeting-note-taker",
@@ -115,9 +115,9 @@ const agentsData = [
     detailedDescription: "Never miss a detail again with the Meeting Note Taker Agent — your always-on meeting companion. It joins your Zoom, Teams, or Google Meet sessions, or listens in via Telegram for in-person meetings, capturing every discussion in real time. After each meeting, it delivers a clear, structured summary with key decisions, insights, and action items, automatically syncing them to your calendar or task manager. All raw meeting recordings are securely saved to your drive, giving you full access to every conversation whenever you need it. Stay organized, save hours on note-taking, and keep every project moving forward effortlessly.",
     avatar: "https://img.freepik.com/premium-photo/3d-rendering-portrait-robot-cyborg-arm-crossed-isolated-white_493806-14337.jpg?w=360",
     features: ["Real-time transcription", "Auto-summarization", "Action item extraction", "Multi-platform support"],
-    bgColor: "from-cyan-100 to-cyan-200",
-    iconBg: "bg-cyan-200",
-    customColor: "#B3F6FD"
+    bgColor: "from-[#7770FF] to-[#E6CBFF]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   }
 ];
 
@@ -140,33 +140,29 @@ const AgentModal = ({ agent, isOpen, onClose }) => {
           style={{ fontFamily: 'DM Sans' }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Header */}
-          <div className={`bg-gradient-to-r ${agent.bgColor} p-8 rounded-t-3xl relative overflow-hidden`}>
+          {/* Header with Avatar */}
+          <div className={`bg-gradient-to-br ${agent.bgColor} p-0 rounded-t-3xl relative overflow-hidden`}>
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200"
+              className="absolute top-6 right-6 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all duration-200 z-10 shadow-lg"
             >
               <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
             
-            <div className="flex items-center gap-6">
-              <div className="relative">
-                <div className={`w-20 h-20 ${agent.iconBg} rounded-2xl flex items-center justify-center shadow-lg`}>
-                  <span className="text-3xl">{agent.icon}</span>
-                </div>
-                <img
-                  src={agent.avatar}
-                  alt={agent.title}
-                  className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full border-4 border-white shadow-lg object-cover"
-                />
-              </div>
-              
-              <div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-2">{agent.title}</h2>
-                <p className="text-gray-600 text-lg">{agent.subtitle}</p>
-              </div>
+            <div className="relative">
+              <img
+                src={agent.avatar}
+                alt={agent.title}
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            
+            <div className="p-8">
+              <h2 className="text-3xl font-bold text-white mb-2">{agent.title}</h2>
+              <p className="text-white/90 text-lg">{agent.subtitle}</p>
             </div>
           </div>
 
@@ -184,7 +180,7 @@ const AgentModal = ({ agent, isOpen, onClose }) => {
               <div className="grid grid-cols-2 gap-4">
                 {agent.features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <div className={`w-2 h-2 ${agent.iconBg} rounded-full`}></div>
+                    <div className={`w-2 h-2 rounded-full`} style={{ backgroundColor: agent.customColor }}></div>
                     <span className="text-gray-700">{feature}</span>
                   </div>
                 ))}
@@ -200,7 +196,8 @@ const AgentModal = ({ agent, isOpen, onClose }) => {
             {/* CTA */}
             <div className="text-center">
               <button 
-                className={`${agent.iconBg} text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300`}
+                className="text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300"
+                style={{ backgroundColor: agent.customColor }}
                 onClick={() => {
                   onClose();
                 }}
@@ -230,77 +227,113 @@ const AgentCard = ({ agent, index, isVisible, onOpenModal }) => {
       }}
     >
       <div 
-        className="relative h-full rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:scale-105 hover:-translate-y-2 group overflow-hidden"
-        style={{ backgroundColor: agent.customColor }}
+        className="relative h-full rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:scale-105 hover:-translate-y-2 group overflow-hidden bg-white flex flex-col"
         onClick={() => onOpenModal(agent)}
       >
-        {/* Decorative 3D blob */}
-        <div 
-          className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-30 transform rotate-45 group-hover:rotate-90 transition-transform duration-700 blur-sm"
-          style={{ backgroundColor: agent.customColor }}
-        ></div>
-        
-        {/* Decorative dots pattern */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-20">
-          <div className="w-3 h-3 bg-white rounded-full absolute top-6 left-6"></div>
-          <div className="w-2 h-2 bg-white rounded-full absolute top-12 left-12"></div>
-          <div className="w-2.5 h-2.5 bg-white rounded-full absolute top-8 right-8"></div>
-          <div className="w-1.5 h-1.5 bg-white rounded-full absolute bottom-6 left-8"></div>
-          <div className="w-2 h-2 bg-white rounded-full absolute bottom-12 right-12"></div>
+        {/* Avatar Header - Compact with gradient overlay */}
+        <div className={`relative h-32 bg-gradient-to-br ${agent.bgColor} overflow-hidden`}>
+          <img
+            src={agent.avatar}
+            alt={agent.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/95"></div>
+          
+          {/* Decorative AI glow effect */}
+          <div 
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              background: `radial-gradient(circle at 50% 50%, ${agent.customColor}40, transparent 70%)`
+            }}
+          ></div>
+          
+          {/* Premium AI badge */}
+          {/* <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+            <span className="text-xs font-bold bg-gradient-to-r from-[#7770FF] to-[#B09CFF] bg-clip-text text-transparent">
+              AI POWERED
+            </span>
+          </div> */}
         </div>
 
-        <div className="p-8 relative z-10">
-          {/* Icon and Avatar */}
-          <div className="flex items-start justify-between mb-6">
-            <div className={`w-16 h-16 ${agent.iconBg} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-              <span className="text-2xl text-white">{agent.icon}</span>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-white/50 rounded-full blur-md"></div>
-              <img
-                src={agent.avatar}
-                alt={agent.title}
-                className="relative w-14 h-14 rounded-full border-3 border-white shadow-lg object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
+        {/* Content Section */}
+        <div className="p-6 pb-0 relative flex flex-col flex-grow">
+          {/* Title with gradient accent */}
+          <div className="mb-4">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-900 transition-colors duration-300">
+              {agent.title}
+            </h3>
+            <div className="w-16 h-1 rounded-full bg-gradient-to-r from-[#7770FF] to-[#B09CFF]"></div>
           </div>
-
-          {/* Content */}
-          <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-gray-900 transition-colors duration-300">
-            {agent.title}
-          </h3>
+          
+          <p className="text-gray-600 text-sm font-medium mb-4">
+            {agent.subtitle}
+          </p>
           
           <p className="text-gray-700 text-sm leading-relaxed mb-6 line-clamp-4">
             {agent.briefDescription}
           </p>
 
-          {/* Features preview */}
+          {/* Features preview with premium styling */}
           <div className="flex flex-wrap gap-2 mb-6">
             {agent.features.slice(0, 2).map((feature, featureIndex) => (
-              <span key={featureIndex} className="bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-700 font-medium border border-white/30">
+              <span 
+                key={featureIndex} 
+                className="px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-300 group-hover:scale-105"
+                style={{
+                  backgroundColor: `${agent.customColor}15`,
+                  borderColor: `${agent.customColor}30`,
+                  color: agent.customColor
+                }}
+              >
                 {feature}
               </span>
             ))}
             {agent.features.length > 2 && (
-              <span className="bg-white/40 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-600 font-medium border border-white/20">
+              <span 
+                className="px-3 py-1.5 rounded-full text-xs font-medium border"
+                style={{
+                  backgroundColor: `${agent.customColor}10`,
+                  borderColor: `${agent.customColor}20`,
+                  color: agent.customColor
+                }}
+              >
                 +{agent.features.length - 2} more
               </span>
             )}
           </div>
 
-          {/* Learn More Button */}
-          <div className="flex items-center justify-between">
-            <span className="text-gray-700 text-sm font-medium">Learn more</span>
-            <div className="w-8 h-8 bg-white/50 hover:bg-white/70 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-              <svg className="w-4 h-4 text-gray-700 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          {/* Learn More Button - Fixed height footer with colored background */}
+          <div 
+            className="flex items-center justify-between pt-4 pb-4 px-6 -mx-6 -mb-0 mt-auto rounded-b-3xl"
+            style={{ 
+              backgroundColor: index % 3 === 1 ? '#B09CFF' : '#7770FF',
+              minHeight: '72px'
+            }}
+          >
+            <span className="text-white text-sm font-semibold">Learn more</span>
+            <div 
+              className="w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-md bg-white/20"
+            >
+              <svg 
+                className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
+                fill="none" 
+                stroke="white" 
+                viewBox="0 0 24 24"
+                strokeWidth="2.5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </div>
           </div>
         </div>
 
-        {/* 3D hover effect overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/10 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+        {/* Premium corner accent */}
+        <div 
+          className="absolute top-0 right-0 w-24 h-24 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+          style={{
+            background: `radial-gradient(circle at top right, ${agent.customColor}, transparent 70%)`
+          }}
+        ></div>
       </div>
     </div>
   );
@@ -313,7 +346,6 @@ const ModernAgentCards = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef(null);
 
-  // Simple intersection observer - cards appear and stay visible.
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -351,7 +383,6 @@ const ModernAgentCards = () => {
     document.body.style.overflow = 'auto';
   };
 
-  // Close modal on escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
@@ -378,8 +409,8 @@ const ModernAgentCards = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
-            <div className="inline-block bg-gradient-to-r from-blue-100 to-indigo-100 backdrop-blur-sm border border-blue-200/50 px-8 py-4 rounded-full text-blue-700 text-sm font-bold mb-8 shadow-lg">
+          <div className="text-center ml-0">
+            <div className="inline-block bg-gradient-to-r from-blue-500 to-indigo-600 backdrop-blur-sm border border-blue-200/50 px-8 py-4 rounded-full text-white text-sm font-bold mb-8 shadow-lg">
               ✨ Meet Your AI Workforce
             </div>
             <p className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -388,7 +419,7 @@ const ModernAgentCards = () => {
           </div>
 
           {/* Agent Cards - Grid layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-25">
             {agentsData.map((agent, index) => (
               <AgentCard
                 key={agent.id}

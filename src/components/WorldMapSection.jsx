@@ -76,7 +76,7 @@ const WorldMapSection = () => {
   const generateDots = () => {
     const dots = [];
     const dotSize = 1;
-    const spacing = 8;
+    const spacing = 6;
 
     // World map outline coordinates (simplified)
     const continents = [
@@ -176,7 +176,7 @@ const WorldMapSection = () => {
 
         {/* World Map Visualization */}
         <div className="mb-20 flex justify-center">
-          <div className="relative w-full max-w-6xl">
+          <div className="relative w-full max-w-5xl">
             <div className="relative bg-gradient-to-br from-gray-50 to-slate-100 rounded-3xl p-12 shadow-2xl border border-gray-200">
 
               {/* Background Map Image */}
@@ -184,13 +184,12 @@ const WorldMapSection = () => {
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 rounded-3xl"
                 style={{
                   backgroundImage: "url('/src/assets/world-map.png')",
-                  backgroundSize: 'contain',
-                  backgroundPosition: 'center'
+                  marginTop: '50px'
                 }}
               ></div>
 
               {/* SVG World Map */}
-              <svg viewBox="0 0 1200 700" className="w-full h-auto">
+              <svg viewBox="0 0 1200 700" className="w-full h-auto mb-15">
 
                 {/* Generate dotted continents */}
                 {generateDots()}
@@ -202,7 +201,7 @@ const WorldMapSection = () => {
                     <circle
                       cx={region.x}
                       cy={region.y}
-                      r="40"
+                      r="8"
                       fill={region.color}
                       className={`transition-all duration-1000 ${animationTriggered ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                         }`}
@@ -214,9 +213,9 @@ const WorldMapSection = () => {
                     {/* Region label */}
                     <text
                       x={region.x}
-                      y={region.y - 60}
+                      y={region.y - 80}
                       textAnchor="middle"
-                      className={`fill-gray-700 font-semibold text-sm transition-all duration-1000 ${animationTriggered ? 'opacity-100' : 'opacity-0'
+                      className={`fill-gray-700 font-semibold text-[23px] transition-all duration-1000 ${animationTriggered ? 'opacity-100' : 'opacity-0'
                         }`}
                       style={{
                         transitionDelay: `${index * 300 + 1200}ms`
@@ -228,9 +227,9 @@ const WorldMapSection = () => {
                     {/* Percentage text */}
                     <text
                       x={region.x}
-                      y={region.y + 8}
+                      y={region.y - 30}
                       textAnchor="middle"
-                      className={`fill-white font-bold text-xl transition-all duration-1000 ${animationTriggered ? 'opacity-100' : 'opacity-0'
+                      className={`fill-black font-bold text-[27px] transition-all duration-1000 ${animationTriggered ? 'opacity-100' : 'opacity-0'
                         }`}
                       style={{
                         transitionDelay: `${index * 300 + 1400}ms`
@@ -248,8 +247,12 @@ const WorldMapSection = () => {
 
 
         {/* Industry Statistics */}
-        <div className="text-center mb-16">
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-8 max-w-4xl mx-auto">
+        <div className="text-center my-26">
+          
+          <p className="text-4xl font-extrabold text-gray-700 mb-18">
+            Global Data Coverage, <span className="text-blue-600">across most industries</span>
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-15 max-w-4xl mx-auto">
             {industryStats.map((item, index) => (
               <div
                 key={index}

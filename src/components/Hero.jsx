@@ -22,12 +22,18 @@ const Hero = () => {
     setIsMobileMenuOpen(false);
   };
   return (
-    <section className="w-screen h-full bg-white relative flex flex-col items-center justify-center text-center px-4 md:px-8 ">
+    <section className="w-full h-full bg-white relative flex flex-col items-center justify-center text-center px-4 md:px-8 overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-200/70 via-blue-100/50 to-blue-200/70"></div>
+        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-blue-300/40 to-purple-300/40 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-purple-300/40 to-blue-300/60 rounded-full blur-3xl"></div>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="mt-20 md:mt-32 max-w-5xl mx-auto"
+        className="mt-20 md:mt-32 max-w-7xl mx-auto relative z-10"
       >
         <h1 className="text-[2.8rem] md:text-[5rem] font-bold text-black leading-[0.95] tracking-tight">
           Always–On, Data–Driven{" "}

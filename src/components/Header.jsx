@@ -22,10 +22,10 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navLinks = [
-    { name: 'About Us', id: 'world-map-section' },
-    { name: 'Agents', id: 'agents' },
-  ];
+  // const navLinks = [
+  //   { name: 'About Us', id: 'world-map-section' },
+  //   { name: 'Agents', id: 'agents' },
+  // ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50  transition-all duration-300 ${isScrolled
@@ -45,7 +45,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
                 <button
@@ -60,7 +60,7 @@ const Header = () => {
                 </button>
               </div>
             ))}
-          </nav>
+          </nav> */}
 
           {/* CTA Button */}
           <div className="hidden md:block">
@@ -70,9 +70,20 @@ const Header = () => {
               style={{ fontFamily: 'DM Sans' }}
             >
               <span>Sign Up Now</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg
+                className="w-6 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M7 17L17 7M10 7h7v7"
+                />
               </svg>
+
             </button>
           </div>
 
