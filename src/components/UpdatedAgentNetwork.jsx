@@ -17,9 +17,9 @@ const agentsData = [
       "LinkedIn URL lookup",
       "Verified emails & phone numbers"
     ],
-    bgColor: "from-[#7770FF] to-[#B09CFF]",
-    iconBg: "bg-[#7770FF]",
-    customColor: "#7770FF"
+    bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "b2b-lead-builder",
@@ -37,9 +37,9 @@ const agentsData = [
       "Location-based search",
       "Pipeline building"
     ],
-    bgColor: "from-[#B09CFF] to-[#E6CBFF]",
-    iconBg: "bg-[#B09CFF]",
-    customColor: "#B09CFF"
+     bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "organic-lead-builder",
@@ -57,9 +57,9 @@ const agentsData = [
       "Email delivery",
       "Profile matching"
     ],
-    bgColor: "from-[#7770FF] to-[#E6CBFF]",
-    iconBg: "bg-[#7770FF]",
-    customColor: "#7770FF"
+     bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "cold-outreach",
@@ -77,9 +77,9 @@ const agentsData = [
       "Two additional domains",
       "Email, Telegram & WhatsApp"
     ],
-    bgColor: "from-[#B09CFF] to-[#7770FF]",
-    iconBg: "bg-[#B09CFF]",
-    customColor: "#B09CFF"
+   bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "call-outreach",
@@ -97,9 +97,9 @@ const agentsData = [
       "Calendar integration",
       "Smart scheduling"
     ],
-    bgColor: "from-[#E6CBFF] to-[#B09CFF]",
-    iconBg: "bg-[#E6CBFF]",
-    customColor: "#E6CBFF"
+    bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "brochure-creation",
@@ -117,9 +117,9 @@ const agentsData = [
       "Pitch decks & eBooks",
       "Real-time insights"
     ],
-    bgColor: "from-[#7770FF] to-[#B09CFF]",
-    iconBg: "bg-[#7770FF]",
-    customColor: "#7770FF"
+     bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "seo-blog-engine",
@@ -137,9 +137,9 @@ const agentsData = [
       "LinkedIn integration",
       "Weekly planning"
     ],
-    bgColor: "from-[#B09CFF] to-[#E6CBFF]",
-    iconBg: "bg-[#B09CFF]",
-    customColor: "#B09CFF"
+  bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "personal-assistant",
@@ -157,9 +157,9 @@ const agentsData = [
       "Telegram integration",
       "Auto-response system"
     ],
-    bgColor: "from-[#E6CBFF] to-[#7770FF]",
-    iconBg: "bg-[#E6CBFF]",
-    customColor: "#E6CBFF"
+     bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   },
   {
     id: "meeting-note-taker",
@@ -177,9 +177,9 @@ const agentsData = [
       "Cloud storage",
       "Calendar sync"
     ],
-    bgColor: "from-[#7770FF] to-[#E6CBFF]",
-    iconBg: "bg-[#7770FF]",
-    customColor: "#7770FF"
+     bgColor: "from-blue-500 to-indigo-200",
+    iconBg: "bg-[#2F7CFF]",
+    customColor: "#2F7CFF"
   }
 ];
 
