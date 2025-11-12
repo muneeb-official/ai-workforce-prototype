@@ -139,7 +139,7 @@ const ProfessionalFooter = () => {
             }}></div>
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               {/* Left side - CTA */}
               <div className="text-gray-900">
@@ -186,7 +186,7 @@ const ProfessionalFooter = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email address"
-                      className="w-full px-8 py-5 rounded-2xl text-gray-900 bg-white backdrop-blur-sm border-2 border-white/20 focus:border-white focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 text-lg"
+                      className="w-full px-8 py-5 rounded-2xl text-gray-900 backdrop-blur-sm border-2 border-blue-600 focus:border-white focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 text-lg"
                     />
                     <button
                       onClick={handleSubscribe}
@@ -220,7 +220,7 @@ const ProfessionalFooter = () => {
         </div>
 
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
 
             {/* Logo & Description */}
@@ -239,7 +239,7 @@ const ProfessionalFooter = () => {
                 </div>
 
               {/* Contact Info */}
-              <div className="space-y-4">
+              <div className="space-y-4 flex flex-col items-start text-left">
                 {[
                   {
                     label: 'Email',
@@ -300,11 +300,11 @@ const ProfessionalFooter = () => {
             {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
               <div
                 key={category}
-                className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                 style={{ transitionDelay: `${(categoryIndex + 2) * 100}ms` }}
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-6 capitalize relative inline-block">
+                <h3 className="text-lg font-bold text-gray-900 mb-6 capitalize relative">
                   {category === 'company' ? 'Company' :
                     category === 'services' ? 'Services' :
                       category === 'support' ? 'Support' : 'Legal'}
@@ -312,7 +312,7 @@ const ProfessionalFooter = () => {
                     className="absolute -bottom-2 left-0 w-12 h-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"
                   ></div>
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-3 text-left">
                   {links.map((link, index) => (
                     <li key={index}>
                       {link.action ? (

@@ -22,7 +22,7 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate form submission delay
     setTimeout(() => {
       setIsLoading(false);
@@ -43,8 +43,8 @@ const ContactSection = () => {
 
   return (
     <>
-      <section id="contact" className="py-20 bg-gradient-to-br from-[#5549FF] via-[#889CFF] to-[#5549FF] relative overflow-hidden">
-        
+      <section id="contact" className="py-20 bg-gradient-to-br from-blue-400 to-indigo-600 relative overflow-hidden">
+
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 -right-32 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -53,14 +53,14 @@ const ContactSection = () => {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
+
             {/* Left Content */}
             <div className="text-white">
-              <h2 
+              <h2
                 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight"
-                style={{ 
+                style={{
                   fontFamily: 'DM Sans',
                   fontSize: 'clamp(2rem, 5vw, 3rem)'
                 }}
@@ -68,13 +68,13 @@ const ContactSection = () => {
                 Drive business growth <span className="text-yellow-400">10x</span><br />
                 with AI Workforce
               </h2>
-              <p 
+              <p
                 className="text-xl text-blue-100 mb-8 leading-relaxed"
                 style={{ fontFamily: 'DM Sans' }}
               >
                 Contact Us Now
               </p>
-              
+
               {/* Contact Information */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
@@ -83,12 +83,16 @@ const ContactSection = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <div>
-                    <p className="text-blue-100 text-sm" style={{ fontFamily: 'DM Sans' }}>Email</p>
-                    <p className="text-white font-semibold" style={{ fontFamily: 'DM Sans' }}>team@aiworkforce.com</p>
+                  <div className="flex flex-col items-start text-left">
+                    <p className="text-blue-100 text-sm font-medium" style={{ fontFamily: 'DM Sans' }}>
+                      Email
+                    </p>
+                    <p className="text-white font-semibold" style={{ fontFamily: 'DM Sans' }}>
+                      team@aiworkforce.com
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,19 +100,19 @@ const ContactSection = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div>
+                  <div className="flex flex-col items-start text-left">
                     <p className="text-blue-100 text-sm" style={{ fontFamily: 'DM Sans' }}>Address</p>
                     <p className="text-white font-semibold" style={{ fontFamily: 'DM Sans' }}>71- 75 Shelton Street, London, WC2H9JQ</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <div>
+                  <div className="flex flex-col items-start text-left">
                     <p className="text-blue-100 text-sm" style={{ fontFamily: 'DM Sans' }}>Phone</p>
                     <p className="text-white font-semibold" style={{ fontFamily: 'DM Sans' }}>02033724223</p>
                   </div>
@@ -119,7 +123,7 @@ const ContactSection = () => {
             {/* Right Form */}
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-2xl">
               <form onSubmit={handleSubmit} className="space-y-6">
-                
+
                 {/* Name Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -130,7 +134,7 @@ const ContactSection = () => {
                       value={formData.firstName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                   </div>
@@ -142,7 +146,7 @@ const ContactSection = () => {
                       value={formData.lastName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                   </div>
@@ -157,7 +161,7 @@ const ContactSection = () => {
                     value={formData.location}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                     style={{ fontFamily: 'DM Sans' }}
                   />
                 </div>
@@ -171,7 +175,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                     style={{ fontFamily: 'DM Sans' }}
                   />
                 </div>
@@ -184,7 +188,7 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="4"
-                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200 resize-none"
                     style={{ fontFamily: 'DM Sans' }}
                   />
                 </div>
@@ -225,13 +229,13 @@ const ContactSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 
+            <h3
               className="text-2xl font-bold text-gray-900 mb-4"
               style={{ fontFamily: 'DM Sans' }}
             >
               Message Sent Successfully!
             </h3>
-            <p 
+            <p
               className="text-gray-600 mb-6"
               style={{ fontFamily: 'DM Sans' }}
             >

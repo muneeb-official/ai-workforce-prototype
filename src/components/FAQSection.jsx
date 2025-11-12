@@ -8,9 +8,9 @@ const CategorizedFAQSection = () => {
   const sectionRef = useRef(null);
 
   const categories = [
-    { id: 'platform', label: 'Platform & AI Agents', color: '#7770FF' },
-    { id: 'benefits', label: 'Benefits & Comparisons', color: '#B09CFF' },
-    { id: 'getting-started', label: 'Getting Started & Integration', color: '#5549FF' }
+    { id: 'platform', label: 'Platform & AI Agents', color: 'bg-gradient-to-br from-blue-500 to-indigo-600' },
+    { id: 'benefits', label: 'Benefits & Comparisons', color: 'bg-gradient-to-br from-blue-500 to-indigo-600' },
+    { id: 'getting-started', label: 'Getting Started & Integration', color: 'bg-gradient-to-br from-blue-500 to-indigo-600' }
   ];
 
   const faqsByCategory = {
@@ -114,7 +114,7 @@ const CategorizedFAQSection = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Enhanced Section Header */}
         <div className="text-center mb-16">
-          <p className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
+          <p className="text-5xl font-bold bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-6">
             Frequently Asked Questions
           </p>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -130,7 +130,7 @@ const CategorizedFAQSection = () => {
               onClick={() => setActiveCategory(category.id)}
               className={`px-8 py-4 rounded-2xl font-bold text-base transition-all duration-500 transform ${
                 activeCategory === category.id
-                  ? 'scale-105 shadow-2xl text-white'
+                  ? 'bg-gradient-to-br from-blue-500 to-indigo-600 scale-105 shadow-2xl text-white'
                   : 'bg-white/80 text-gray-700 hover:bg-white hover:shadow-lg hover:scale-102'
               }`}
               style={{
