@@ -7,6 +7,7 @@ import WorldMapSection from '../components/WorldMapSection';
 import FAQSection from '../components/FAQSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import OtherOfferings from '../components/Offerings';
 
 const LandingPage = () => {
   return (
@@ -20,6 +21,9 @@ const LandingPage = () => {
       {/* Agent Network Section */}
       <UpdatedAgentNetwork />
       
+      {/*Other offerings Section */}
+      <OtherOfferings />
+
       {/* World Map & Statistics Section */}
       <WorldMapSection />
       

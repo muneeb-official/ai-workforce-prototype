@@ -158,7 +158,7 @@ const CategorizedFAQSection = () => {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div
-                className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border transition-all duration-500 overflow-hidden ${
+                className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg transition-all duration-500 ease-in-out hover:scale-105 overflow-hidden ${
                   openIndex === index
                     ? 'shadow-2xl scale-[1.02]'
                     : hoveredIndex === index
@@ -176,8 +176,8 @@ const CategorizedFAQSection = () => {
                 <button
                   className={`w-full px-8 py-6 text-left flex items-center justify-between transition-all duration-300 ${
                     hoveredIndex === index || openIndex === index
-                      ? 'bg-gradient-to-r from-blue-50/50 to-indigo-50/50'
-                      : 'hover:bg-gray-50/50'
+                      ? 'bg-gradient-to-r from-blue-300 to-indigo-400'
+                      : 'hover:bg-blue-300'
                   }`}
                   onClick={() => toggleFAQ(index)}
                 >
@@ -189,7 +189,7 @@ const CategorizedFAQSection = () => {
                           ? 'scale-110 text-white'
                           : hoveredIndex === index
                           ? 'scale-105 text-white'
-                          : 'bg-gray-100 text-gray-600'
+                          : 'bg-gray-200 text-gray-600'
                       }`}
                       style={{
                         backgroundColor: openIndex === index || hoveredIndex === index 
@@ -220,7 +220,7 @@ const CategorizedFAQSection = () => {
                       openIndex === index
                         ? 'text-white rotate-180 scale-110'
                         : hoveredIndex === index
-                        ? 'text-white scale-105'
+                        ? 'text-white  scale-105'
                         : 'bg-gray-100 text-gray-400'
                     }`}
                     style={{
@@ -273,16 +273,6 @@ const CategorizedFAQSection = () => {
                             e.stopPropagation();
                           }}
                         >
-                          <span>Learn More</span>
-                          <svg
-                            className="w-4 h-4 transition-transform group-hover/btn:translate-x-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            strokeWidth="2.5"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
                         </button>
                       </div>
                     </div>

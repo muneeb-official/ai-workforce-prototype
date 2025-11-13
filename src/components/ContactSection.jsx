@@ -45,28 +45,23 @@ const ContactSection = () => {
     <>
       <section id="contact" className="py-20 bg-gradient-to-br from-blue-400 to-indigo-600 relative overflow-hidden">
 
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 -right-32 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-32 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/3 rounded-full blur-3xl"></div>
-        </div>
+       
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-center">
 
-            {/* Left Content */}
+            {/* First Content */}
             <div className="text-white">
               <h2
-                className="text-4xl sm:text-5xl font-bold mb-6 leading-tight"
+                className="text-6xl sm:text-5xl font-bold mb-6 leading-tight"
                 style={{
                   fontFamily: 'DM Sans',
-                  fontSize: 'clamp(2rem, 5vw, 3rem)'
+                  fontSize: 'clamp(3.7rem, 5vw, 3rem)'
                 }}
               >
-                Drive business growth <span className="text-yellow-400">10x</span><br />
-                with AI Workforce
+                Drive business growth <span className="text-yellow-400">10x</span>
+                <br /> with AI Workforce
               </h2>
               <p
                 className="text-xl text-blue-100 mb-8 leading-relaxed"
@@ -76,7 +71,7 @@ const ContactSection = () => {
               </p>
 
               {/* Contact Information */}
-              <div className="space-y-6">
+              <div className="space-y-6 items-center w-100 m-auto">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,9 +115,9 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Right Form */}
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-2xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Contact Form */}
+            <div className="w-180 m-auto h-full bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-2xl">
+              <form onSubmit={handleSubmit} className="space-y-10">
 
                 {/* Name Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -134,7 +129,7 @@ const ContactSection = () => {
                       value={formData.firstName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-5 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                   </div>
@@ -146,7 +141,7 @@ const ContactSection = () => {
                       value={formData.lastName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-5 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                   </div>
@@ -161,7 +156,7 @@ const ContactSection = () => {
                     value={formData.location}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-5 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                     style={{ fontFamily: 'DM Sans' }}
                   />
                 </div>
@@ -175,7 +170,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-5 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200"
                     style={{ fontFamily: 'DM Sans' }}
                   />
                 </div>
@@ -188,7 +183,7 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="4"
-                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-5 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-200 resize-none"
                     style={{ fontFamily: 'DM Sans' }}
                   />
                 </div>

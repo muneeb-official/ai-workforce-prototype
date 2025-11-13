@@ -140,13 +140,10 @@ const ProfessionalFooter = () => {
           </div>
 
           <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid md:grid-cols-1 gap-16 items-center">
               {/* Left side - CTA */}
               <div className="text-gray-900">
-                <div className="inline-flex items-center bg-gradient-to-r from-[#7770FF]/10 to-[#B09CFF]/10 backdrop-blur-sm px-6 py-3 rounded-full text-[#7770FF] text-sm font-semibold mb-6 border border-[#7770FF]/20">
-                  <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mr-3 animate-pulse"></div>
-                  Stay Ahead of the Curve
-                </div>
+                
                 <h3 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight text-gray-900">
                   Ready to Transform Your Business?
                 </h3>
@@ -155,7 +152,7 @@ const ProfessionalFooter = () => {
                 </p>
 
                 {/* Trust indicators */}
-                <div className="grid grid-cols-3 gap-4 text-sm text-gray-600">
+                <div className="grid grid-cols-3 w-150 m-auto text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <div className="w-5 h-5 rounded-full bg-[#7770FF]/10 flex items-center justify-center flex-shrink-0">
                       <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"></div>
@@ -180,7 +177,7 @@ const ProfessionalFooter = () => {
               {/* Right side - Newsletter signup */}
               <div className="relative">
                 <div className="relative group mb-8">
-                  <div className="relative">
+                  <div className="relative w-200 m-auto">
                     <input
                       type="email"
                       value={email}
@@ -198,7 +195,7 @@ const ProfessionalFooter = () => {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-4 gap-4 w-300 m-auto">
                   {stats.map((stat, index) => (
                     <div
                       key={index}
@@ -220,7 +217,7 @@ const ProfessionalFooter = () => {
         </div>
 
         {/* Main Footer Content */}
-        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="w-400 mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
 
             {/* Logo & Description */}
@@ -229,7 +226,7 @@ const ProfessionalFooter = () => {
                 }`}
               style={{ transitionDelay: '100ms' }}
             >
-              <div className="flex items-center space-x-3 mb-6 group cursor-pointer">
+              <div className="flex items-center space-x-6 mb-6 group cursor-pointer">
                 
                 <img
                   src={logo}
@@ -354,7 +351,7 @@ const ProfessionalFooter = () => {
             }`}
           style={{ transitionDelay: '700ms' }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="w-400 mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
 
               {/* Copyright */}

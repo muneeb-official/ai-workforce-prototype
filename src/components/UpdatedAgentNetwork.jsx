@@ -6,9 +6,10 @@ const agentsData = [
     id: "b2c-lead-builder",
     title: "B2C Lead Builder Agent",
     subtitle: "Consumer Lead Generation",
+    icon: "📊",
     briefDescription: "Turn data into opportunity with access to 800M+ verified consumer profiles worldwide. Build ideal personas and discover real people instantly.",
     detailedDescription: "Turn data into opportunity with the B2C Lead Builder Agent — your gateway to over 800 million verified consumer profiles worldwide. Build your perfect customer persona and instantly discover real people who match it. Search by name, location, role, skills, experience, or industry, and watch as the agent delivers enriched contact lists complete with verified emails and phone numbers. Whether you're scaling outreach or targeting specific individuals, simply enter a name and LinkedIn URL to uncover direct contact details in seconds. Build smarter, reach faster, and grow your customer base effortlessly — all powered by AI precision.",
-   
+    avatar: "https://www.cognigy.com/hs-fs/hubfs/LLM%20Bot%20-%20English%20(3).png?width=750&height=675&name=LLM%20Bot%20-%20English%20(3).png",
     features: [
       "800M+ verified profiles",
       "Real-time data enrichment",
@@ -17,9 +18,9 @@ const agentsData = [
       "LinkedIn URL lookup",
       "Verified emails & phone numbers"
     ],
-    bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#7770FF]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   },
   {
     id: "b2b-lead-builder",
@@ -37,9 +38,9 @@ const agentsData = [
       "Location-based search",
       "Pipeline building"
     ],
-     bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#6766F5]",
+    iconBg: "bg-[#B09CFF]",
+    customColor: "#B09CFF"
   },
   {
     id: "organic-lead-builder",
@@ -57,9 +58,9 @@ const agentsData = [
       "Email delivery",
       "Profile matching"
     ],
-     bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#585DEC]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   },
   {
     id: "cold-outreach",
@@ -77,9 +78,9 @@ const agentsData = [
       "Two additional domains",
       "Email, Telegram & WhatsApp"
     ],
-   bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#4A55E3]",
+    iconBg: "bg-[#B09CFF]",
+    customColor: "#B09CFF"
   },
   {
     id: "call-outreach",
@@ -97,9 +98,9 @@ const agentsData = [
       "Calendar integration",
       "Smart scheduling"
     ],
-    bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#3B4CDA]",
+    iconBg: "bg-[#E6CBFF]",
+    customColor: "#E6CBFF"
   },
   {
     id: "brochure-creation",
@@ -117,9 +118,9 @@ const agentsData = [
       "Pitch decks & eBooks",
       "Real-time insights"
     ],
-     bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#2C43D1]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   },
   {
     id: "seo-blog-engine",
@@ -137,9 +138,9 @@ const agentsData = [
       "LinkedIn integration",
       "Weekly planning"
     ],
-  bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#1D3AC8]",
+    iconBg: "bg-[#B09CFF]",
+    customColor: "#B09CFF"
   },
   {
     id: "personal-assistant",
@@ -157,9 +158,9 @@ const agentsData = [
       "Telegram integration",
       "Auto-response system"
     ],
-     bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#0F31BF]",
+    iconBg: "bg-[#E6CBFF]",
+    customColor: "#E6CBFF"
   },
   {
     id: "meeting-note-taker",
@@ -177,172 +178,80 @@ const agentsData = [
       "Cloud storage",
       "Calendar sync"
     ],
-     bgColor: "from-blue-500 to-indigo-200",
-    iconBg: "bg-[#2F7CFF]",
-    customColor: "#2F7CFF"
+    bgColor: "bg-[#0028B6]",
+    iconBg: "bg-[#7770FF]",
+    customColor: "#7770FF"
   }
 ];
 
-// Individual Agent Card Component - Full details displayed
-// Individual Agent Card Component - Enhanced Professional Design
-const AgentCard = ({ agent, index, isVisible }) => {
+// Individual Agent Card Component
+const AgentCard = ({ agent, index }) => {
+  const featureBoxes = [
+    { title: agent.features[0]?.split(' ').slice(0, 2).join(' ') || "No cold", subtitle: agent.features[0]?.split(' ').slice(2).join(' ') || "leads" },
+    { title: agent.features[1]?.split(' ').slice(0, 2).join(' ') || "Speed to", subtitle: agent.features[1]?.split(' ').slice(2).join(' ') || "lead" },
+    { title: agent.features[2]?.split(' ').slice(0, 3).join(' ') || "Sell more, less", subtitle: agent.features[2]?.split(' ').slice(3).join(' ') || "admin" },
+    { title: agent.features[3]?.split(' ').slice(0, 2).join(' ') || "Custom", subtitle: agent.features[3]?.split(' ').slice(2).join(' ') || "workflows" },
+    { title: agent.features[4]?.split(' ').slice(0, 2).join(' ') || "Seamless", subtitle: agent.features[4]?.split(' ').slice(2).join(' ') || "integration" },
+  ];
+
   return (
-    <div
-      className={`transition-all duration-1000 ease-out ${
-        isVisible 
-          ? 'opacity-100 translate-y-0 scale-100' 
-          : 'opacity-0 translate-y-12 scale-95'
-      }`}
-      style={{ 
-        transitionDelay: `${index * 100}ms`,
-        fontFamily: 'DM Sans'
-      }}
-    >
-      <div className="relative rounded-[32px] shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden bg-white border border-gray-100">
-        {/* Premium top accent line */}
-        <div 
-          className="absolute top-0 left-0 right-0 h-1.5"
-          style={{ 
-            background: `linear-gradient(90deg, ${agent.customColor}, ${agent.customColor}80)` 
-          }}
-        ></div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
-          {/* Left Content Section - 3 columns */}
-          <div className="lg:col-span-3 p-10 md:p-14 flex flex-col justify-between bg-gradient-to-br from-white to-gray-50/30">
+    <div style={{ fontFamily: 'DM Sans', height: '100%' }}>
+      <div className="relative rounded-2xl overflow-hidden bg-[#F0F0FA] h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full">
+          {/* Left Content Section */}
+          <div className="p-6 lg:p-12 flex flex-col justify-between text-left">
             <div>
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div 
-                  className="w-3 h-3 rounded-full animate-pulse"
-                  style={{ backgroundColor: agent.customColor }}
-                ></div>
-                <span 
-                  className="text-xs font-bold uppercase tracking-wider"
-                  style={{ color: agent.customColor }}
-                >
-                  AI-Powered Agent
-                </span>
-              </div>
-              
-              {/* Title with gradient underline */}
-              <div className="mb-6">
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-[1.1]">
-                  {agent.title}
-                </h3>
-                <div 
-                  className="w-24 h-1.5 rounded-full"
-                  style={{ backgroundColor: agent.customColor }}
-                ></div>
-              </div>
-              
-              <p className="text-gray-500 text-lg font-medium mb-8 tracking-wide">
-                {agent.subtitle}
-              </p>
-              
-              {/* Brief Description with enhanced styling */}
-              <div className="mb-10 p-6 bg-white rounded-2xl border-l-4 shadow-sm" style={{ borderLeftColor: agent.customColor }}>
-                <p className="text-gray-800 text-base leading-relaxed font-medium">
-                  {agent.briefDescription}
+              <h3 className="text-3xl text-left lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                {agent.title}
+              </h3>
+
+              <div className="space-y-4 mb-8 text-left">
+                <p className="text-gray-700 text-base leading-relaxed ">
+                  Engages leads instantly. Drives pipeline 24/7
+                </p>
+                <p className="text-gray-700 text-base leading-relaxed">
+                  Adapts to any sales motion. Fits any playbook
+                </p>
+                <p className="text-gray-700 text-base leading-relaxed">
+                  Automates research, follow-ups, and CRM updates—effortlessly
                 </p>
               </div>
-              
-              {/* Feature Grid - Enhanced */}
-              <div className="mb-10">
-                <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <svg className="w-6 h-6" style={{ color: agent.customColor }} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  Key Capabilities
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {agent.features.map((feature, idx) => (
-                    <div 
-                      key={idx} 
-                      className="flex items-start gap-3 p-4 bg-white rounded-xl hover:shadow-md transition-all duration-300 group border border-gray-100"
-                    >
-                      <div className="mt-0.5 flex-shrink-0">
-                        <div 
-                          className="w-6 h-6 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300" 
-                          style={{ backgroundColor: `${agent.customColor}15` }}
-                        >
-                          <svg className="w-3.5 h-3.5" style={{ color: agent.customColor }} fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                      </div>
-                      <p className="text-gray-700 text-sm leading-relaxed font-medium">
-                        {feature}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                {featureBoxes.map((feature, idx) => (
+                  <div key={idx} className="bg-white rounded p-3">
+                    <h4 className="text-sm font-bold text-gray-900 mb-1">
+                      {feature.title}
+                    </h4>
+                    <p className="text-xs text-gray-600">
+                      {feature.subtitle}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
-            
-            {/* CTA Button - Enhanced */}
-            <div className="flex items-center gap-4 flex-wrap">
-              <button 
-                className="group relative text-white px-10 py-5 rounded-2xl font-bold text-base overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105"
-                style={{ backgroundColor: agent.customColor }}
-              >
-                <span className="relative z-10 flex items-center gap-3">
-                  Get Started Now
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              </button>
-              
-              {/* <button className="text-gray-600 font-semibold text-base hover:text-gray-900 transition-colors duration-300 flex items-center gap-2">
-                Learn More
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+
+            <div className="mt-4">
+              <button className="inline-flex items-center gap-2 text-gray-900 font-bold text-base hover:gap-3 transition-all duration-300 group">
+                <span>Learn More</span>
+                <svg
+                  className="w-4 h-4 transform rounded group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2.5"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </button> */}
+              </button>
             </div>
           </div>
 
-          {/* Right Image Section - 2 columns */}
-          <div 
-            className={`lg:col-span-2 relative bg-gradient-to-br ${agent.bgColor} flex items-end justify-center overflow-hidden min-h-[500px] lg:min-h-[700px]`}
+          {/* Right Image Section */}
+          <div
+            className={`relative bg-gradient-to-br ${agent.bgColor} flex items-end justify-center overflow-hidden min-h-[400px] lg:min-h-[550px] rounded-r-2xl`}
           >
-            {/* Geometric background elements */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-10 right-10 w-32 h-32 border-4 border-white rounded-3xl rotate-12"></div>
-              <div className="absolute bottom-20 left-10 w-24 h-24 border-4 border-white rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/30 rounded-full"></div>
-            </div>
-            
-            {/* Large decorative circle */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[120%] h-[120%] bg-white/10 rounded-full blur-3xl"></div>
-            
-            {/* Agent Image */}
-            {/* <img
-              src={agent.avatar}
-              alt={agent.title}
-              className="relative z-10 h-[450px] lg:h-[650px] w-auto object-contain drop-shadow-2xl"
-            /> */}
-            
-            {/* Enhanced glow effect */}
-            <div 
-              className="absolute inset-0 opacity-40"
-              style={{
-                background: `radial-gradient(circle at 50% 80%, ${agent.customColor}80, transparent 50%)`
-              }}
-            ></div>
-            
-            {/* Floating stats badge */}
-            <div className="absolute top-8 right-8 bg-white/95 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl">
-              <div className="flex items-center gap-3">
-                <div 
-                  className="w-3 h-3 rounded-full animate-pulse"
-                  style={{ backgroundColor: agent.customColor }}
-                ></div>
-                <span className="text-sm font-bold text-gray-800">Active Now</span>
-              </div>
-            </div>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/4 w-32 h-32 bg-white/20 rounded-full"></div>
           </div>
         </div>
       </div>
@@ -352,44 +261,38 @@ const AgentCard = ({ agent, index, isVisible }) => {
 
 // Main Component
 const ModernAgentCards = () => {
-  const [visibleCards, setVisibleCards] = useState([]);
-  const cardRefs = useRef([]);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const observers = [];
-    
-    cardRefs.current.forEach((ref, index) => {
-      if (ref) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                setVisibleCards((prev) =>
-                  prev.includes(index) ? prev : [...prev, index]
-                );
-              }
-            });
-          },
-          { 
-            threshold: 0.2,
-            rootMargin: '0px'
-          }
-        );
+    const handleScroll = () => {
+      if (!containerRef.current) return;
 
-        observer.observe(ref);
-        observers.push(observer);
-      }
-    });
+      const container = containerRef.current;
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
 
-    return () => {
-      observers.forEach(observer => observer.disconnect());
+      const startScroll = -rect.top;
+      const maxScroll = rect.height - windowHeight;
+      const progress = Math.max(0, Math.min(1, startScroll / maxScroll));
+
+      setScrollProgress(progress);
     };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <section
-      className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden"
-      style={{ fontFamily: 'DM Sans' }}
+      ref={containerRef}
+      className="relative bg-gradient-to-br from-gray-50 via-white to-blue-50"
+      style={{
+        fontFamily: 'DM Sans',
+        minHeight: `${(agentsData.length + 1) * 100}vh`
+      }}
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -397,29 +300,94 @@ const ModernAgentCards = () => {
         <div className="absolute -bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-indigo-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-20">
-          
-          <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Recruit enterprise-grade AI agents today<br />fully customizable
-          </p>
-        </div>
-
-        {/* Agent Cards - Single column full details */}
-        <div className="space-y-16 max-w-6xl mx-auto">
-          {agentsData.map((agent, index) => (
-            <div 
-              key={agent.id}
-              ref={el => cardRefs.current[index] = el}
-            >
-              <AgentCard
-                agent={agent}
-                index={index}
-                isVisible={visibleCards.includes(index)}
-              />
+      {/* Sticky Container */}
+      <div className="sticky top-0 h-screen overflow-hidden">
+        <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="inline-block backdrop-blur-sm px-8 py-4 rounded-full text-blue-600 text-[32px] font-bold mb-1">
+              Meet Your AI Workforce
             </div>
-          ))}
+            <p className="text-4xl sm:text-5xl md:text-[7xl] font-bold text-gray-900 mb-6 leading-tight">
+              Recruit enterprise-grade AI agents today<br />fully customizable
+            </p>
+          </div>
+
+          {/* Dynamic Cards with Dramatic Animation */}
+          <div className="relative max-w-6xl mx-auto w-full h-[600px] mb-10">
+            {agentsData.map((agent, index) => {
+              // Calculate which card should be visible based on scroll
+              const scrollMultiplier = 1; // 2 = double scroll, 3 = triple scroll
+              const adjustedProgress = Math.min(1, scrollProgress * scrollMultiplier);
+
+              const cardStart = index / agentsData.length;
+              const cardEnd = (index + 2) / agentsData.length;
+              const cardProgress = (adjustedProgress - cardStart) / (cardEnd - cardStart);
+
+              // Determine visibility
+              const isCurrentCard = adjustedProgress >= cardStart && adjustedProgress < cardEnd;
+              const isNextCard = index === Math.ceil(adjustedProgress * agentsData.length);
+              const isPreviousCard = index < Math.floor(adjustedProgress * agentsData.length);
+
+              let transform = '';
+              let opacity = 0;
+              let blur = 0;
+              let zIndex = 0;
+
+              if (isCurrentCard) {
+                // Current card - stays clear for first part, then blurs
+                const progress = Math.max(0, Math.min(1, cardProgress));
+
+                // Card stays clear for first 60% of scroll (2-3 scrolls), then animates
+                const blurThreshold = 0.2; // Adjust this: 0.6 = 60% stay clear, 0.7 = 70% stay clear
+                const animationProgress = progress < blurThreshold ? 0 : (progress - blurThreshold) / (1 - blurThreshold);
+
+                const scaleX = 1 + (animationProgress * 0.2); // Gets WIDER (120%)
+                const scaleY = 1 - (animationProgress * 0.6); // Gets SHORTER (70%)
+                const translateY = -animationProgress * 100; // Moves up dramatically
+                opacity = 1 - (animationProgress * 2); // Fades out strongly
+                blur = animationProgress * 15; // Strong blur
+                zIndex = 100;
+
+                transform = `translateY(${translateY}px) scaleX(${scaleX}) scaleY(${scaleY})`;
+              } else if (isNextCard && scrollProgress < cardEnd) {
+                // Next card - slides in from below
+                const progress = Math.max(0, Math.min(1, cardProgress));
+                const translateY = (1 - progress) * 100; // Slides up from below
+                opacity = progress; // Fades in
+                zIndex = 50;
+
+                transform = `translateY(${translateY}px) scale(1)`;
+              } else if (isPreviousCard) {
+                // Cards that already passed - hide completely
+                opacity = 0;
+                zIndex = 0;
+                transform = 'translateY(-200px) scaleX(1.3) scaleY(0.6)';
+                blur = 20;
+              } else {
+                // Future cards - waiting below
+                opacity = 0;
+                zIndex = 10;
+                transform = 'translateY(100px) scale(0.95)';
+              }
+
+              return (
+                <div
+                  key={agent.id}
+                  className="absolute inset-0 transition-all duration-700 ease-out"
+                  style={{
+                    transform: transform,
+                    opacity: opacity,
+                    filter: `blur(${blur}px)`,
+                    zIndex: zIndex,
+                    pointerEvents: isCurrentCard ? 'auto' : 'none'
+                  }}
+                >
+                  <AgentCard agent={agent} index={index} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

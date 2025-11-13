@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import image from '../assets/world-map.png';
+import { AlignLeft } from "lucide-react";
 
 const WorldMapSection = () => {
   const [animationTriggered, setAnimationTriggered] = useState(false);
@@ -41,44 +42,62 @@ const WorldMapSection = () => {
     { value: "24/7", label: "Data Updates", gradient: "from-cyan-500 to-cyan-600" },
   ];
 
-  // Animate counters
-  const animateCounters = () => {
+// Animate counters smoothly
+const animateCounters = () => {
+  const duration = 2000; // 2 seconds total animation
+  const fps = 60;
+  const totalFrames = (duration / 1000) * fps;
+  let frame = 0;
+
+  const animate = () => {
+    frame++;
+    const progress = frame / totalFrames;
+    
+    // Easing function for smooth animation (ease-out)
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+    
+    const newCounters = {};
     industryStats.forEach((stat) => {
-      let current = 0;
-      const increment = stat.percentage / 50;
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= stat.percentage) {
-          current = stat.percentage;
-          clearInterval(timer);
-        }
-        setCounters((prev) => ({
-          ...prev,
-          [stat.key]: Math.floor(current),
-        }));
-      }, 30);
+      newCounters[stat.key] = Math.floor(stat.percentage * easeProgress);
     });
+    
+    setCounters(newCounters);
+    
+    if (frame < totalFrames) {
+      requestAnimationFrame(animate);
+    } else {
+      // Set final values
+      const finalCounters = {};
+      industryStats.forEach((stat) => {
+        finalCounters[stat.key] = stat.percentage;
+      });
+      setCounters(finalCounters);
+    }
   };
+  
+  requestAnimationFrame(animate);
+};
 
-  // Intersection observer for scroll trigger
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animationTriggered) {
-          setAnimationTriggered(true);
-          setTimeout(animateCounters, 300);
-        }
-      },
-      { threshold: 0.2 }
-    );
+// Intersection observer for scroll trigger
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !animationTriggered) {
+        setAnimationTriggered(true);
+        // Small delay for better visual effect
+        setTimeout(animateCounters, 300);
+      }
+    },
+    { threshold: 0.3 } // Trigger earlier for smoother experience
+  );
 
-    const element = document.getElementById("world-map-section");
-    if (element) observer.observe(element);
+  const element = document.getElementById("world-map-section");
+  if (element) observer.observe(element);
 
-    return () => {
-      if (element) observer.unobserve(element);
-    };
-  }, [animationTriggered]);
+  return () => {
+    if (element) observer.unobserve(element);
+  };
+}, [animationTriggered]);
 
   // Generate dotted map
   const generateDots = () => {
@@ -230,7 +249,7 @@ const WorldMapSection = () => {
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-3 text-white bg-gradient-to-r from-blue-600 to-indigo-300 px-4 py-3 rounded-xl border border-blue-100 transition-all duration-700 ${animationTriggered
+                    className={`flex items-center gap-3 text-white bg-gradient-to-br from-blue-500 to-indigo-600 px-4 py-3 rounded-xl border border-blue-100 transition-all duration-700 ${animationTriggered
                       ? "opacity-100 translate-x-0"
                       : "opacity-0 -translate-x-4"
                       }`}
@@ -246,7 +265,7 @@ const WorldMapSection = () => {
           </div>
 
           {/* Right Column - Industry Stats & Info */}
-          <div className={`transition-all duration-500 ${animationTriggered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '200ms' }}>
+          <div className={`transition-all duration-700 ${animationTriggered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '300ms' }}>
             <div className="bg-white/90 backdrop-blur-md rounded-2xl sm:rounded-3xl  border border-gray-100 p-4 sm:p-6 lg:p-8 h-full flex flex-col">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6">Industry Coverage</h3>
 
@@ -255,11 +274,11 @@ const WorldMapSection = () => {
                 {industryStats.map((item, index) => (
                   <div
                     key={index}
-                    className={`transition-all duration-700 ${animationTriggered
+                    className={`transition-all duration-100 ${animationTriggered
                       ? "opacity-100 translate-x-0"
                       : "opacity-0 translate-x-8"
                       }`}
-                    style={{ transitionDelay: `${index * 100 + 800}ms` }}
+                    style={{ transitionDelay: `${index * 100 + 500}ms` }}
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm sm:text-base font-semibold text-gray-700">
@@ -274,7 +293,7 @@ const WorldMapSection = () => {
                         className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full rounded-full transition-all duration-1000 ease-out"
                         style={{
                           width: animationTriggered ? `${counters[item.key]}%` : '0%',
-                          transitionDelay: `${index * 100 + 900}ms`
+                          transitionDelay: `${index * 100 + 100}ms`
                         }}
                       ></div>
                     </div>
