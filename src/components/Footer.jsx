@@ -322,7 +322,7 @@ const ProfessionalFooter = () => {
                           <span className={`transform inline-block ${hoveredLink === `${category}-${index}` ? 'translate-x-2' : ''} transition-transform duration-300`}>
                             {link.name}
                           </span>
-                          <span className={`absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 opacity-0 ${hoveredLink === `${category}-${index}` ? 'opacity-100' : ''} transition-opacity duration-300`}></span>
+                          {/* <span className={`absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 opacity-0 ${hoveredLink === `${category}-${index}` ? 'opacity-100' : ''} transition-opacity duration-300`}></span> */}
                         </button>
                       ) : (
                         <a

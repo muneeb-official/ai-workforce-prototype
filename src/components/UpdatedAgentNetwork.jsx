@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-// Enhanced Agent Data with your specific colors
+// Your Agent Data
 const agentsData = [
   {
     id: "b2c-lead-builder",
@@ -184,7 +185,7 @@ const agentsData = [
   }
 ];
 
-// Individual Agent Card Component
+// Your Original Agent Card Component (unchanged)
 const AgentCard = ({ agent, index }) => {
   const featureBoxes = [
     { title: agent.features[0]?.split(' ').slice(0, 2).join(' ') || "No cold", subtitle: agent.features[0]?.split(' ').slice(2).join(' ') || "leads" },
@@ -196,7 +197,7 @@ const AgentCard = ({ agent, index }) => {
 
   return (
     <div style={{ fontFamily: 'DM Sans', height: '100%' }}>
-      <div className="relative rounded-2xl overflow-hidden bg-[#F0F0FA] h-full">
+      <div className="relative rounded-2xl overflow-hidden bg-[#F0F0FA] h-150">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full">
           {/* Left Content Section */}
           <div className="p-6 lg:p-12 flex flex-col justify-between text-left">
@@ -259,31 +260,13 @@ const AgentCard = ({ agent, index }) => {
   );
 };
 
-// Main Component
-const ModernAgentCards = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+// Main Component with Smooth Continuous Scroll
+const UpdateAgentsNetwork = () => {
   const containerRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const container = containerRef.current;
-      const rect = container.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const startScroll = -rect.top;
-      const maxScroll = rect.height - windowHeight;
-      const progress = Math.max(0, Math.min(1, startScroll / maxScroll));
-
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
   return (
     <section
@@ -291,7 +274,7 @@ const ModernAgentCards = () => {
       className="relative bg-gradient-to-br from-gray-50 via-white to-blue-50"
       style={{
         fontFamily: 'DM Sans',
-        minHeight: `${(agentsData.length + 1) * 100}vh`
+        height: `${(agentsData.length + 2) * 170}vh` // Extra space for smooth scrolling
       }}
     >
       {/* Background Elements */}
@@ -301,8 +284,9 @@ const ModernAgentCards = () => {
       </div>
 
       {/* Sticky Container */}
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-10 bottom-10 h-screen overflow-hidden">
         <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-block backdrop-blur-sm px-8 py-4 rounded-full text-blue-600 text-[32px] font-bold mb-1">
@@ -313,78 +297,148 @@ const ModernAgentCards = () => {
             </p>
           </div>
 
-          {/* Dynamic Cards with Dramatic Animation */}
-          <div className="relative max-w-6xl mx-auto w-full h-[600px] mb-10">
+          {/* Cards Container with Smooth Continuous Scroll */}
+          <div className="relative max-w-6xl mx-auto w-full h-[800px]">
             {agentsData.map((agent, index) => {
-              // Calculate which card should be visible based on scroll
-              const scrollMultiplier = 1; // 2 = double scroll, 3 = triple scroll
-              const adjustedProgress = Math.min(1, scrollProgress * scrollMultiplier);
+              // Calculate the scroll range for each card
+              const cardHeight = 100; // Viewport height percentage per card
+              const overlapRange = 30; // How much cards overlap in their scroll ranges
 
-              const cardStart = index / agentsData.length;
-              const cardEnd = (index + 2) / agentsData.length;
-              const cardProgress = (adjustedProgress - cardStart) / (cardEnd - cardStart);
+              // Each card has a longer scroll range with overlap
+              const startScroll = (index * cardHeight) / (agentsData.length * 100);
+              const peakScroll = ((index + 0.5) * cardHeight) / (agentsData.length * 100);
+              const endScroll = ((index + 1.5) * cardHeight) / (agentsData.length * 100);
 
-              // Determine visibility
-              const isCurrentCard = adjustedProgress >= cardStart && adjustedProgress < cardEnd;
-              const isNextCard = index === Math.ceil(adjustedProgress * agentsData.length);
-              const isPreviousCard = index < Math.floor(adjustedProgress * agentsData.length);
+              // Smooth Y movement - previous card moves up slightly then disappears
+              const y = useTransform(
+                scrollYProgress,
+                [
+                  Math.max(0, startScroll - 0.1),
+                  startScroll,
+                  peakScroll,
+                  peakScroll + 0.1,
+                  endScroll,
+                  Math.min(1, endScroll + 0.1)
+                ],
+                [
+                  window.innerHeight,      // Start below viewport
+                  window.innerHeight * 0.3, // Enter from below
+                  0,                        // Center position
+                  -50,                      // Move up slightly when next card arrives
+                  -100,                     // Continue moving up a bit
+                  -150                      // Final position before disappearing
+                ]
+              );
 
-              let transform = '';
-              let opacity = 0;
-              let blur = 0;
-              let zIndex = 0;
+              // Scale animation - shrinks when being replaced
+              const scale = useTransform(
+                scrollYProgress,
+                [
+                  Math.max(0, startScroll - 0.05),
+                  peakScroll - 0.05,
+                  peakScroll,
+                  peakScroll + 0.05,
+                  endScroll,
+                  Math.min(1, endScroll + 0.1)
+                ],
+                [
+                  0.85,  // Start smaller
+                  0.95,  // Growing
+                  1,     // Peak size
+                  0.95,  // Start shrinking
+                  0.85,  // Smaller when moving back
+                  0.75   // Even smaller before disappearing
+                ]
+              );
 
-              if (isCurrentCard) {
-                // Current card - stays clear for first part, then blurs
-                const progress = Math.max(0, Math.min(1, cardProgress));
+              // Scale Y separately for height compression
+              const scaleY = useTransform(
+                scrollYProgress,
+                [
+                  peakScroll,
+                  peakScroll + 0.05,
+                  endScroll,
+                  Math.min(1, endScroll + 0.1)
+                ],
+                [
+                  1,     // Normal height
+                  0.9,   // Start compressing height
+                  0.7,   // More compressed
+                  0.5    // Very compressed before disappearing
+                ]
+              );
 
-                // Card stays clear for first 60% of scroll (2-3 scrolls), then animates
-                const blurThreshold = 0.2; // Adjust this: 0.6 = 60% stay clear, 0.7 = 70% stay clear
-                const animationProgress = progress < blurThreshold ? 0 : (progress - blurThreshold) / (1 - blurThreshold);
+              // Opacity - cards are always fully visible
+              const opacity = useTransform(
+                scrollYProgress,
+                [
+                  Math.max(0, startScroll - 0.1),
+                  startScroll,
+                  peakScroll - 0.02,
+                  peakScroll + 0.02,
+                  endScroll,
+                  Math.min(1, endScroll + 0.1)
+                ],
+                [
+                  1,     // Fully visible from start
+                  1,     // Stay visible
+                  1,     // Stay visible at peak
+                  1,     // Stay visible
+                  1,     // Stay visible when behind
+                  1      // Always visible
+                ]
+              );
 
-                const scaleX = 1 + (animationProgress * 0.2); // Gets WIDER (120%)
-                const scaleY = 1 - (animationProgress * 0.6); // Gets SHORTER (70%)
-                const translateY = -animationProgress * 100; // Moves up dramatically
-                opacity = 1 - (animationProgress * 2); // Fades out strongly
-                blur = animationProgress * 15; // Strong blur
-                zIndex = 100;
+              // Dynamic z-index based on scroll position
+              const zIndex = useTransform(
+                scrollYProgress,
+                [
+                  startScroll - 0.1,
+                  startScroll,
+                  peakScroll,
+                  endScroll
+                ],
+                [
+                  1000 - index * 10,    // Higher z-index for later cards when entering
+                  1000 - index * 10,    // Keep high z-index
+                  1000 - index * 10,    // Stay in front at peak
+                  10 + index            // Lower z-index when being replaced
+                ]
+              );
 
-                transform = `translateY(${translateY}px) scaleX(${scaleX}) scaleY(${scaleY})`;
-              } else if (isNextCard && scrollProgress < cardEnd) {
-                // Next card - slides in from below
-                const progress = Math.max(0, Math.min(1, cardProgress));
-                const translateY = (1 - progress) * 100; // Slides up from below
-                opacity = progress; // Fades in
-                zIndex = 50;
-
-                transform = `translateY(${translateY}px) scale(1)`;
-              } else if (isPreviousCard) {
-                // Cards that already passed - hide completely
-                opacity = 0;
-                zIndex = 0;
-                transform = 'translateY(-200px) scaleX(1.3) scaleY(0.6)';
-                blur = 20;
-              } else {
-                // Future cards - waiting below
-                opacity = 0;
-                zIndex = 10;
-                transform = 'translateY(100px) scale(0.95)';
-              }
+              // Rotation for added smoothness (subtle)
+              const rotateX = useTransform(
+                scrollYProgress,
+                [
+                  Math.max(0, startScroll - 0.1),
+                  peakScroll,
+                  Math.min(1, endScroll + 0.1)
+                ],
+                [
+                  -5,  // Slight backward tilt when entering
+                  0,   // No rotation at peak
+                  0    // Stay flat (no forward tilt)
+                ]
+              );
 
               return (
-                <div
+                <motion.div
                   key={agent.id}
-                  className="absolute inset-0 transition-all duration-700 ease-out"
                   style={{
-                    transform: transform,
-                    opacity: opacity,
-                    filter: `blur(${blur}px)`,
-                    zIndex: zIndex,
-                    pointerEvents: isCurrentCard ? 'auto' : 'none'
+                    position: 'absolute',
+                    width: '100%',
+                    y,
+                    scale,
+                    scaleY,
+                    opacity,
+                    zIndex,
+                    rotateX,
+                    perspective: 1000
                   }}
+                  className="px-4"
                 >
                   <AgentCard agent={agent} index={index} />
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -394,4 +448,4 @@ const ModernAgentCards = () => {
   );
 };
 
-export default ModernAgentCards;
+export default UpdateAgentsNetwork;

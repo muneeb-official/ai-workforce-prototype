@@ -49,7 +49,7 @@ const ContactSection = () => {
 
         <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* First Content */}
             <div className="text-white">
