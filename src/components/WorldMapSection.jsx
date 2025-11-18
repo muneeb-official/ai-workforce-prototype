@@ -150,7 +150,9 @@ useEffect(() => {
       <div className="relative z-10 w-400 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-16">
-
+          <div className="inline-block px-6 py-3 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium mb-6">
+            Services
+          </div>
           <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-2 sm:mb-3 md:mb-4 leading-tight px-4 transition-all duration-700 ${animationTriggered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '100ms' }}>
             Where Our Leads <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">Come From</span>
           </h2>

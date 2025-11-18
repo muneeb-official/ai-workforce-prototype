@@ -113,6 +113,9 @@ const CategorizedFAQSection = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Enhanced Section Header */}
+        <div className="inline-block px-6 py-3 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium mb-6">
+            FAQ's
+          </div>
         <div className="text-center mb-16">
           <p className="text-5xl font-bold bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-6">
             Frequently Asked Questions

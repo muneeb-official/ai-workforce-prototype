@@ -44,12 +44,12 @@ const Hero = () => {
 
         <div className="mt-8 mb-6">
           <p className="text-[2rem] md:text-[2.5rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#7C3AED]">
-            100% Custom Coded
+            Scaling Quality, Not Just Access
           </p>
         </div>
 
         <p className="text-gray-600 mt-4 text-lg md:text-xl max-w-3xl mx-auto font-medium">
-          Our AI agents operate 24/7 to supercharge your
+          Our AI agents operate 24/7 to supercharge your business growth
         </p>
 
         <div className="mt-10">
@@ -58,13 +58,23 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection('contact')}
-            className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-200 flex items-center space-x-2 mx-auto"
+            className="bg-transparent border px-8 py-4 rounded-full text-lg hover:text-white transition-all duration-200 bg-[#3453FE] flex items-center space-x-2 mx-auto"
             style={{ fontFamily: 'DM Sans' }}
           >
-            <span>Get Early Access</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <span>Sign Up to get Early Access</span>
+            <svg
+                className="w-6 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M7 17L17 7M10 7h7v7"
+                />
+              </svg>
           </motion.button>
         </div>
       </motion.div>

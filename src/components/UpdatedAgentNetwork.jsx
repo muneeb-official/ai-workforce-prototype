@@ -197,16 +197,16 @@ const AgentCard = ({ agent, index }) => {
 
   return (
     <div style={{ fontFamily: 'DM Sans', height: '100%' }}>
-      <div className="relative rounded-2xl overflow-hidden bg-[#F0F0FA] h-150">
+      <div className="relative rounded-2xl overflow-hidden bg-[#F0F0FA] h-130">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full">
           {/* Left Content Section */}
           <div className="p-6 lg:p-12 flex flex-col justify-between text-left">
             <div>
-              <h3 className="text-3xl text-left lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+              <h3 className="text-3xl text-left lg:text-4xl font-bold text-gray-900 mb-5 leading-tight">
                 {agent.title}
               </h3>
 
-              <div className="space-y-4 mb-8 text-left">
+              <div className="space-y-1 mb-8 text-left">
                 <p className="text-gray-700 text-base leading-relaxed ">
                   Engages leads instantly. Drives pipeline 24/7
                 </p>
@@ -232,7 +232,7 @@ const AgentCard = ({ agent, index }) => {
               </div>
             </div>
 
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <button className="inline-flex items-center gap-2 text-gray-900 font-bold text-base hover:gap-3 transition-all duration-300 group">
                 <span>Learn More</span>
                 <svg
@@ -245,7 +245,7 @@ const AgentCard = ({ agent, index }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Image Section */}
@@ -288,12 +288,12 @@ const UpdateAgentsNetwork = () => {
         <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-block backdrop-blur-sm px-8 py-4 rounded-full text-blue-600 text-[32px] font-bold mb-1">
-              Meet Your AI Workforce
-            </div>
+          <div className="text-center mt-18">
+            <div className="inline-block px-6 py-3 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium mb-6">
+            Meet your AI Workforce
+          </div>
             <p className="text-4xl sm:text-5xl md:text-[7xl] font-bold text-gray-900 mb-6 leading-tight">
-              Recruit enterprise-grade AI agents today<br />fully customizable
+              Deploy enterprise-grade AI agents tailored to your business
             </p>
           </div>
 

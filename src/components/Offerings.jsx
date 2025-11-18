@@ -5,43 +5,43 @@ const offeringsData = [
   {
     id: 1,
     icon: Monitor,
-    title: "Monitoring Company Stats",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    title: "Dedicated Account Manager Assigned",
+    description: "Every user receives a dedicated account manager who provides guidance, answers questions, and ensures smooth onboarding and growth.",
     color: "#5B93FF"
   },
   {
     id: 2,
     icon: Users,
-    title: "Fundraise",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    title: "Custom-Coded AI Agents",
+    description: "All our agents are built from custom code with no third-party tools or frameworks, giving you faster performance and complete reliability.",
     color: "#5B93FF"
   },
   {
     id: 3,
     icon: UserCheck,
-    title: "Hire Advisors",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    title: "UK & Europe Data Intelligence",
+    description: "Our platform uses strong UK and Europe datasets trusted by major firms, ensuring accurate results and consistent data quality throughout.",
     color: "#5B93FF"
   },
   {
     id: 4,
     icon: FileText,
-    title: "Secure Document Storage",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    title: "Lead Generation & Outreach Automation",
+    description: "The platform finds, enriches, and contacts new leads automatically, handling research, messaging, and follow-ups to keep engagement steady and consistent.",
     color: "#5B93FF"
   },
   {
     id: 5,
     icon: MessageCircle,
-    title: "Talk To Investor",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    title: "Content & Engagement Automation",
+    description: "The system helps agents produce blogs, posts, and brochures, ensuring your brand stays active and consistent across every channel.",
     color: "#5B93FF"
   },
   {
     id: 6,
     icon: Headphones,
-    title: "Trendscout 24×7 Support",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    title: "Assistant & Meeting Support Agents",
+    description: "Our agents manage emails, tasks, calls, and meeting notes, helping organise your day, capture key points, and keep your workflow running smoothly.",
     color: "#5B93FF"
   }
 ];
@@ -147,11 +147,11 @@ const OtherOfferings = () => {
         </div>
 
         {/* Bottom Text */}
-        <div className="text-center pt-12 border-t border-gray-200">
+        {/* <div className="text-center pt-12 border-t border-gray-200">
           <p className="text-gray-600 text-base">
             Listen to what our consumers says?
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );
