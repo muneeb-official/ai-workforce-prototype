@@ -11,31 +11,33 @@ import OtherOfferings from '../components/Offerings';
 
 const LandingPage = () => {
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-[#5549FF]/40 via-white to-[#338EFD]/40">
-      {/* Header */}
-      <Header />
-      
-      {/* Hero Section */}
-      <Hero />
-      
-      {/* Agent Network Section */}
-      <UpdatedAgentNetwork />
-      
-      {/*Other offerings Section */}
-      <OtherOfferings />
+    
+      <div className="h-screen section">
+        
+        {/* Header */}
+        <Header />
 
-      {/* World Map & Statistics Section */}
-      <WorldMapSection />
-      
-      {/* FAQ Section */}
-      <FAQSection />
-      
-      {/* Contact Section */}
-      <ContactSection />
-      
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Hero Section */}
+        <Hero />
+
+        {/* Agent Network Section */}
+        <UpdatedAgentNetwork />
+
+        {/*Other offerings Section */}
+        <OtherOfferings />
+
+        {/* World Map & Statistics Section */}
+        <WorldMapSection />
+
+        {/* FAQ Section */}
+        <FAQSection />
+
+        {/* Contact Section */}
+        <ContactSection />
+
+        {/* Footer */}
+        <Footer />
+      </div>
   );
 };
 

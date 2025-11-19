@@ -101,26 +101,21 @@ const CategorizedFAQSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden"
+      className="py-24 bg-white relative overflow-hidden"
       style={{ fontFamily: 'DM Sans' }}
     >
-      {/* Enhanced Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-indigo-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
-      </div>
+      
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-1 lg:px-8">
         {/* Enhanced Section Header */}
-        <div className="inline-block px-6 py-3 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium mb-6">
+        <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gray-100 text-gray-600 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             FAQ's
           </div>
         <div className="text-center mb-16">
-          <p className="text-5xl font-bold bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-6">
+          <p className="text-[2rem] md:text-4xl lg:text-5xl font-extrabold bg-black bg-clip-text text-transparent mb-2 md:mb-6">
             Frequently Asked Questions
           </p>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Everything you need to know about transforming your business with AI agents
           </p>
         </div>
@@ -131,9 +126,9 @@ const CategorizedFAQSection = () => {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-8 py-4 rounded-2xl font-bold text-base transition-all duration-500 transform ${
+              className={`px-5 md:px-8 py-2.5 md:py-4 rounded-2xl font-bold text-base transition-all duration-500 transform ${
                 activeCategory === category.id
-                  ? 'bg-gradient-to-br from-blue-500 to-indigo-600 scale-105 shadow-2xl text-white'
+                  ? 'bg-blue-600 scale-105 shadow-2xl text-white'
                   : 'bg-white/80 text-gray-700 hover:bg-white hover:shadow-lg hover:scale-102'
               }`}
               style={{
@@ -147,7 +142,7 @@ const CategorizedFAQSection = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-6 mb-20">
+        <div className="space-y-3 md:space-y-6 mb-20">
           {faqsByCategory[activeCategory].map((faq, index) => (
             <div
               key={index}
@@ -177,7 +172,7 @@ const CategorizedFAQSection = () => {
                 }}
               >
                 <button
-                  className={`w-full px-8 py-6 text-left flex items-center justify-between transition-all duration-300 ${
+                  className={`w-full px-5 md:px-8 py-4 md:py-6 text-left flex items-center justify-between transition-all duration-300 ${
                     hoveredIndex === index || openIndex === index
                       ? 'bg-gradient-to-r from-blue-300 to-indigo-400'
                       : 'hover:bg-blue-300'
@@ -187,7 +182,7 @@ const CategorizedFAQSection = () => {
                   <div className="flex items-center gap-6 flex-1">
                     {/* Question Number Badge */}
                     <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg transition-all duration-500 ${
+                      className={`w-7 h-7 md:w-12 md:h-12 rounded md:rounded-xl flex items-center justify-center font-bold text-sm md:text-lg transition-all duration-500 ${
                         openIndex === index
                           ? 'scale-110 text-white'
                           : hoveredIndex === index
@@ -206,7 +201,7 @@ const CategorizedFAQSection = () => {
                     <div className="flex-1">
                       {/* Question */}
                       <span
-                        className={`text-lg sm:text-xl font-bold pr-4 transition-all duration-300 ${
+                        className={`text-sm sm:text-xl font-bold pr-4 transition-all duration-300 ${
                           openIndex === index || hoveredIndex === index
                             ? 'text-gray-900'
                             : 'text-gray-800'
@@ -219,7 +214,7 @@ const CategorizedFAQSection = () => {
 
                   {/* Enhanced Arrow */}
                   <div
-                    className={`ml-4 p-3 rounded-xl transition-all duration-500 ${
+                    className={`ml-4 p-1 md:p-3 rounded md:rounded-xl transition-all duration-500 ${
                       openIndex === index
                         ? 'text-white rotate-180 scale-110'
                         : hoveredIndex === index
@@ -247,7 +242,7 @@ const CategorizedFAQSection = () => {
                   <div className="px-8 pb-8">
                     {/* Animated Divider */}
                     <div 
-                      className="w-full h-1 rounded-full mb-6"
+                      className="w-full h-1 rounded-full mb-3 md:mb-6"
                       style={{
                         background: `linear-gradient(to right, transparent, ${categories.find(c => c.id === activeCategory).color}, transparent)`
                       }}
@@ -260,7 +255,7 @@ const CategorizedFAQSection = () => {
                       }`}
                       style={{ transitionDelay: openIndex === index ? '200ms' : '0ms' }}
                     >
-                      <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-lg">
                         {faq.answer}
                       </p>
 

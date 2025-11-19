@@ -29,11 +29,11 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50  transition-all duration-300 ${isScrolled
-      ? 'bg-transparent bg-white/50 '
+      ? 'bg-transparent bg-white '
       : 'bg-transparent'
       }`}>
-      <div className="w-full mx-auto px-6 sm:px-10 lg:px-10">
-        <div className="flex items-center justify-between h-23">
+      <div className="w-full mx-auto px-5 sm:px-10 lg:px-10">
+        <div className="flex items-center justify-between h-18 md:h-23">
 
           {/* Logo */}
           <div className="flex items-center space-x-2">
@@ -66,10 +66,10 @@ const Header = () => {
           <div className="hidden md:block">
             <button
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold text-md hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2"
+              className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-md hover:shadow-lg hover:bg-blue-800 hover:scale-105 transition-all duration-200 flex items-center space-x-2"
               style={{ fontFamily: 'DM Sans' }}
             >
-              <span>Sign Up Now</span>
+              <span>Contact Us</span>
               <svg
                 className="w-6 h-4"
                 fill="none"

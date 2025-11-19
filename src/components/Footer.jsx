@@ -20,23 +20,17 @@ const ProfessionalFooter = () => {
       { name: 'Careers', action: () => scrollToSection('careers') },
       { name: 'Blog', action: () => scrollToSection('blog') }
     ],
-    services: [
+    contents: [
       { name: 'AI Sales Agent', action: () => scrollToSection('agents') },
       { name: 'AI Marketing', action: () => scrollToSection('agents') },
       { name: 'AI Assistant', action: () => scrollToSection('agents') },
       { name: 'Custom Solutions', action: () => scrollToSection('contact') }
     ],
     support: [
-      { name: 'Help Center', action: () => scrollToSection('faq') },
-      { name: 'Documentation', action: () => scrollToSection('docs') },
-      { name: 'Contact Support', action: () => scrollToSection('contact') },
-      { name: 'API Reference', action: () => scrollToSection('api') }
-    ],
-    legal: [
-      { name: 'Privacy Policy', href: '#privacy' },
-      { name: 'Terms of Service', href: '#terms' },
-      { name: 'Cookie Policy', href: '#cookies' },
-      { name: 'GDPR Compliance', href: '#gdpr' }
+      { name: 'Apply Now', action: () => scrollToSection('contact') },
+      // { name: 'Documentation', action: () => scrollToSection('docs') },
+      // { name: 'Contact Support', action: () => scrollToSection('contact') },
+      // { name: 'API Reference', action: () => scrollToSection('api') }
     ]
   };
 
@@ -115,18 +109,14 @@ const ProfessionalFooter = () => {
   return (
     <footer
       ref={footerRef}
-      className="bg-gradient-to-br from-blue-50/30 via-white to-purple-50/30 relative overflow-hidden"
+      className=" relative overflow-hidden"
       style={{ fontFamily: 'DM Sans' }}
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-[#7770FF]/5 to-[#B09CFF]/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-[#B09CFF]/5 to-[#7770FF]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-[#7770FF]/3 to-[#B09CFF]/3 rounded-full blur-3xl"></div>
-      </div>
+
 
       <div className="relative z-10">
         {/* Newsletter Section */}
+
         <div
           className={`bg-white relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
@@ -139,79 +129,75 @@ const ProfessionalFooter = () => {
             }}></div>
           </div>
 
-          <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="grid md:grid-cols-1 gap-16 items-center">
-              {/* Left side - CTA */}
-              <div className="text-gray-900">
-                
-                <h3 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight text-gray-900">
-                  Ready to Transform Your Business?
-                </h3>
-                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Get exclusive insights, AI workforce updates, and industry trends delivered straight to your inbox. Join 10,000+ innovators already transforming their operations.
-                </p>
+          <div className="relative z-10 w-full bg-[#EAEAFF] px-4 sm:px-6 lg:px-8 py-20">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gray-100 text-gray-600 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+            Newsletter
+          </div>
 
-                {/* Trust indicators */}
-                <div className="grid grid-cols-3 w-150 m-auto text-sm text-gray-600">
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-[#7770FF]/10 flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                    </div>
-                    <span>No spam, ever</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-[#7770FF]/10 flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                    </div>
-                    <span>Unsubscribe anytime</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-[#7770FF]/10 flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                    </div>
-                    <span>Weekly insights</span>
-                  </div>
+              <h3 className="text-[2rem] md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight text-gray-900">
+                Ready to Transform Your Business?
+              </h3>
+
+              <p className="text-gray-600 text-[1rem] md:text-lg mb-8 leading-relaxed max-w-3xl mx-auto">
+                Get exclusive insights, AI workforce updates, and industry trends delivered straight to your
+                inbox. Join 10,000+ innovators already transforming their operations.
+              </p>
+
+              {/* Trust indicators */}
+              <div className="grid grid-col-1 gap-1 md:flex md:justify-center gap-8  mb-12 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  <span>No spam, ever</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  <span>Unsubscribe anytime</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  <span>Weekly insights</span>
                 </div>
               </div>
 
-              {/* Right side - Newsletter signup */}
-              <div className="relative">
-                <div className="relative group mb-8">
-                  <div className="relative w-200 m-auto">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email address"
-                      className="w-full px-8 py-5 rounded-2xl text-gray-900 backdrop-blur-sm border-2 border-blue-600 focus:border-white focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 text-lg"
-                    />
-                    <button
-                      onClick={handleSubscribe}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300"
-                    >
-                      Subscribe
-                    </button>
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                {[
+                  { number: "10K+", label: "Active Users" },
+                  { number: "99.9%", label: "Uptime" },
+                  { number: "24/7", label: "Support" },
+                  { number: "50+", label: "Country" }
+                ].map((stat, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#E0DFFF] border-[#E0DFFF] backdrop-blur-sm rounded-2xl p-6 text-center"
+                  >
+                    <div className="text-[#6364F2] font-bold text-3xl mb-2">{stat.number}</div>
+                    <div className="text-gray-600 text-sm">{stat.label}</div>
                   </div>
-                </div>
+                ))}
+              </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-4 gap-4 w-300 m-auto">
-                  {stats.map((stat, index) => (
-                    <div
-                      key={index}
-                      className={`bg-gradient-to-br from-[#7770FF]/10 to-[#B09CFF]/10 backdrop-blur-sm rounded-2xl p-4 text-center transform hover:scale-105 transition-all duration-500 hover:shadow-lg border border-[#7770FF]/20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                        }`}
-                      style={{
-                        transitionDelay: `${index * 100 + 400}ms`,
-                        animation: isVisible ? 'fadeInUp 0.6s ease-out forwards' : 'none'
-                      }}
-                    >
-                      <div className="text-gray-900 font-bold text-2xl mb-1">{stat.number}</div>
-                      <div className="text-gray-600 text-xs font-medium">{stat.label}</div>
-                    </div>
-                  ))}
+              {/* Email input */}
+              <div className="max-w-xl mx-auto mt-10">
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    className="w-full px-6 py-4 pr-32 rounded-2xl text-gray-900 bg-white border-2 border-blue-500 focus:border-blue-600 focus:outline-none transition-all duration-300 text-base"
+                  />
+                  <button
+                    onClick={handleSubscribe}
+                    className="absolute right-1.5 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-2xl font-semibold transition-all duration-300"
+                  >
+                    Subscribe
+                  </button>
                 </div>
               </div>
+
+              
             </div>
           </div>
         </div>
@@ -227,15 +213,68 @@ const ProfessionalFooter = () => {
               style={{ transitionDelay: '100ms' }}
             >
               <div className="flex items-center space-x-6 mb-6 group cursor-pointer">
-                
+
                 <img
                   src={logo}
                   alt="AI workforce Logo"
                   className="group-hover:opacity-100 transition-opacity duration-300"
                 />
-                </div>
+              </div>
 
-              {/* Contact Info */}
+              
+            </div>
+
+            {/* Footer Links */}
+            {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
+              <div
+                key={category}
+                className={`text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                style={{ transitionDelay: `${(categoryIndex + 2) * 100}ms` }}
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-6 capitalize relative">
+                  {category === 'company' ? 'Company' :
+                    category === 'contents' ? 'Content' :
+                      category === 'support' ? 'Support' : 'Legal'}
+                  {/* <div
+                    className="absolute -bottom-2 left-0 w-12 h-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"
+                  ></div> */}
+                </h3>
+                <ul className="space-y-3 text-left">
+                  {links.map((link, index) => (
+                    <li key={index}>
+                      {link.action ? (
+                        <button
+                          onClick={link.action}
+                          onMouseEnter={() => setHoveredLink(`${category}-${index}`)}
+                          onMouseLeave={() => setHoveredLink(null)}
+                          className="text-gray-600 hover:text-[#7770FF] transition-all duration-300 text-base font-medium relative group"
+                        >
+                          <span className={`transform inline-block ${hoveredLink === `${category}-${index}` ? 'translate-x-2' : ''} transition-transform duration-300`}>
+                            {link.name}
+                          </span>
+                          {/* <span className={`absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 opacity-0 ${hoveredLink === `${category}-${index}` ? 'opacity-100' : ''} transition-opacity duration-300`}></span> */}
+                        </button>
+                      ) : (
+                        <a
+                          href={link.href}
+                          onMouseEnter={() => setHoveredLink(`${category}-${index}`)}
+                          onMouseLeave={() => setHoveredLink(null)}
+                          className="text-gray-600 hover:text-[#7770FF] transition-all duration-300 text-base font-medium relative group"
+                        >
+                          <span className={`transform inline-block ${hoveredLink === `${category}-${index}` ? 'translate-x-2' : ''} transition-transform duration-300`}>
+                            {link.name}
+                          </span>
+                          <span className={`absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#7770FF] opacity-0 ${hoveredLink === `${category}-${index}` ? 'opacity-100' : ''} transition-opacity duration-300`}></span>
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                
+              </div>
+            ))}
+            {/* Contact Info */}
               <div className="space-y-4 flex flex-col items-start text-left">
                 {[
                   {
@@ -291,57 +330,6 @@ const ProfessionalFooter = () => {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Footer Links */}
-            {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
-              <div
-                key={category}
-                className={`text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
-                style={{ transitionDelay: `${(categoryIndex + 2) * 100}ms` }}
-              >
-                <h3 className="text-lg font-bold text-gray-900 mb-6 capitalize relative">
-                  {category === 'company' ? 'Company' :
-                    category === 'services' ? 'Services' :
-                      category === 'support' ? 'Support' : 'Legal'}
-                  <div
-                    className="absolute -bottom-2 left-0 w-12 h-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"
-                  ></div>
-                </h3>
-                <ul className="space-y-3 text-left">
-                  {links.map((link, index) => (
-                    <li key={index}>
-                      {link.action ? (
-                        <button
-                          onClick={link.action}
-                          onMouseEnter={() => setHoveredLink(`${category}-${index}`)}
-                          onMouseLeave={() => setHoveredLink(null)}
-                          className="text-gray-600 hover:text-[#7770FF] transition-all duration-300 text-base font-medium relative group"
-                        >
-                          <span className={`transform inline-block ${hoveredLink === `${category}-${index}` ? 'translate-x-2' : ''} transition-transform duration-300`}>
-                            {link.name}
-                          </span>
-                          {/* <span className={`absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 opacity-0 ${hoveredLink === `${category}-${index}` ? 'opacity-100' : ''} transition-opacity duration-300`}></span> */}
-                        </button>
-                      ) : (
-                        <a
-                          href={link.href}
-                          onMouseEnter={() => setHoveredLink(`${category}-${index}`)}
-                          onMouseLeave={() => setHoveredLink(null)}
-                          className="text-gray-600 hover:text-[#7770FF] transition-all duration-300 text-base font-medium relative group"
-                        >
-                          <span className={`transform inline-block ${hoveredLink === `${category}-${index}` ? 'translate-x-2' : ''} transition-transform duration-300`}>
-                            {link.name}
-                          </span>
-                          <span className={`absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#7770FF] opacity-0 ${hoveredLink === `${category}-${index}` ? 'opacity-100' : ''} transition-opacity duration-300`}></span>
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
         </div>
 
@@ -372,7 +360,7 @@ const ProfessionalFooter = () => {
                     <a
                       key={index}
                       href={social.href}
-                      className="relative w-12 h-12 rounded-xl flex items-center justify-center text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:shadow-2xl transition-all duration-300 group overflow-hidden transform hover:scale-110"
+                      className="relative w-12 h-12 rounded-xl flex items-center justify-center text-white bg-[#4B5DDB] hover:shadow-2xl transition-all duration-300 group overflow-hidden transform hover:scale-110"
                       aria-label={social.name}
                     >
                       {/* Animated background overlay */}
