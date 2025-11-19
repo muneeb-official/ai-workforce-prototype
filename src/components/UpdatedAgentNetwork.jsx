@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import card from '../assets/card.jpg';
+import card from '../assets/Card.jpg';
 
 // Your Agent Data
 const agentsData = [
