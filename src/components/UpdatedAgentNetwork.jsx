@@ -288,7 +288,7 @@ const AgentCard = ({ agent }) => {
   );
 };
 
-// Main Component (stacked simple layout)
+// Main Component (stacked simple layout).
 const UpdateAgentsNetwork = () => {
   return (
     <section
