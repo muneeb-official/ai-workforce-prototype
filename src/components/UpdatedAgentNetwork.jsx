@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+// import { motion, useScroll, useTransform } from "framer-motion";
 import card from '../assets/card.jpg';
 
 // Your Agent Data
@@ -213,281 +213,105 @@ const agentsData = [
   },
 ];
 
-// Your Original Agent Card Component (unchanged)
-const AgentCard = ({ agent, index }) => {
+// Single Card Component
+const AgentCard = ({ agent }) => {
   const featureBoxes = [
     {
-      title: agent.features[0]?.split(" ").slice(0, 2).join(" ") || "No cold",
-      subtitle: agent.features[0]?.split(" ").slice(2).join(" ") || "leads",
+      title: agent.features[0]?.split(" ").slice(0, 2).join(" ") || "Feature",
+      subtitle: agent.features[0]?.split(" ").slice(2).join(" ") || "",
     },
     {
-      title: agent.features[1]?.split(" ").slice(0, 2).join(" ") || "Speed to",
-      subtitle: agent.features[1]?.split(" ").slice(2).join(" ") || "lead",
+      title: agent.features[1]?.split(" ").slice(0, 2).join(" ") || "Feature",
+      subtitle: agent.features[1]?.split(" ").slice(2).join(" ") || "",
     },
     {
-      title:
-        agent.features[2]?.split(" ").slice(0, 3).join(" ") ||
-        "Sell more, less",
-      subtitle: agent.features[2]?.split(" ").slice(3).join(" ") || "admin",
+      title: agent.features[2]?.split(" ").slice(0, 3).join(" ") || "Feature",
+      subtitle: agent.features[2]?.split(" ").slice(3).join(" ") || "",
     },
     {
-      title: agent.features[3]?.split(" ").slice(0, 2).join(" ") || "Custom",
-      subtitle: agent.features[3]?.split(" ").slice(2).join(" ") || "workflows",
+      title: agent.features[3]?.split(" ").slice(0, 2).join(" ") || "Feature",
+      subtitle: agent.features[3]?.split(" ").slice(2).join(" ") || "",
     },
     {
-      title: agent.features[4]?.split(" ").slice(0, 2).join(" ") || "Seamless",
-      subtitle:
-        agent.features[4]?.split(" ").slice(2).join(" ") || "integration",
+      title: agent.features[4]?.split(" ").slice(0, 2).join(" ") || "Feature",
+      subtitle: agent.features[4]?.split(" ").slice(2).join(" ") || "",
     },
   ];
 
   return (
-    <div style={{ fontFamily: "DM Sans", height: "100%" }}>
-      <div className="relative rounded-2xl overflow-hidden bg-[#F9F9FB] h-125 md:h-130">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full ">
-          {/* Left Content Section */}
-          <div className="order-2 lg:order-1 p-4 lg:p-12 flex flex-col justify-between text-left">
-            <div>
-              <h3 className="text-[1rem] text-left lg:text-[2rem] font-bold text-gray-900 mb-2.5 md:mb-5 leading-tight">
-                {agent.title}
-              </h3>
+    <div
+      className="rounded-2xl overflow-hidden bg-[#F9F9FB] shadow-md"
+      style={{ fontFamily: "DM Sans" }}
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2">
 
-              <div className="space-y-1 mb-4 md:mb-8 text-left">
-                <p className="text-[0.7rem] md:text-[1rem] lg:text-[1.2rem] text-gray-700 text-base leading-relaxed ">
-                  Engages leads instantly. Drives pipeline 24/7
-                </p>
-                <p className="text-[0.7rem] md:text-[1rem] lg:text-[1.2rem] text-gray-700 text-base leading-relaxed">
-                  Adapts to any sales motion. Fits any playbook
-                </p>
-                <p className="text-[0.7rem] md:text-[1rem] lg:text-[1.2rem] text-gray-700 text-base leading-relaxed">
-                  Automates research, follow-ups, and CRM updates—effortlessly
-                </p>
-              </div>
+        {/* Left text section */}
+        <div className="p-6 lg:p-12 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl lg:text-3xl font-bold text-gray-900 mb-4">
+              {agent.title}
+            </h3>
 
-              <div className="grid grid-cols-2 gap-2 md:gap-3 mb-4 md:mb-8">
-                {featureBoxes.map((feature, idx) => (
-                  <div key={idx} className="bg-white rounded p-1 md:p-3">
-                    <h4 className="text-[0.6rem] md:text-sm font-bold text-gray-900 mb-1">
-                      {feature.title}
-                    </h4>
-                    <p className="text-[0.45rem] md:text-xs text-gray-600">{feature.subtitle}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="space-y-3 mb-6">
+              <p className="text-gray-700 text-base leading-relaxed">
+                Engages leads instantly. Drives pipeline 24/7
+              </p>
+              <p className="text-gray-700 text-base leading-relaxed">
+                Adapts to any sales motion. Fits any playbook
+              </p>
+              <p className="text-gray-700 text-base leading-relaxed">
+                Automates research, follow-ups, and CRM updates
+              </p>
             </div>
 
-            {/* <div className="mt-4">
-              <button className="inline-flex items-center gap-2 text-gray-900 font-bold text-base hover:gap-3 transition-all duration-300 group">
-                <span>Learn More</span>
-                <svg
-                  className="w-4 h-4 transform rounded group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </div> */}
+            <div className="grid grid-cols-2 gap-3">
+              {featureBoxes.map((feature, idx) => (
+                <div key={idx} className="bg-white rounded p-3 shadow-sm">
+                  <h4 className="text-sm font-bold text-gray-900 mb-1">
+                    {feature.title}
+                  </h4>
+                  <p className="text-xs text-gray-600">
+                    {feature.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
 
-          {/* Right Image Section */}
-          <div
-            className={`order-1 lg:order-2 relative flex items-end justify-center overflow-hidden min-h-[250px] lg:min-h-[400px] rounded-r-2xl`}
-          >
-            <img
-                              src={card}
-                              alt="Agent"
-                              className="w-full h-full "
-                            />
-            {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/4 w-32 h-32 bg-white/20 rounded-full"></div> */}
-          </div>
+        {/* Right image */}
+        <div className="relative overflow-hidden min-h-[250px] lg:min-h-[350px]">
+          <img src={card} alt="Agent" className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
   );
 };
 
-// Main Component with Smooth Continuous Scroll
+// Main Component (stacked simple layout)
 const UpdateAgentsNetwork = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
   return (
     <section
-      ref={containerRef}
-      className="relative bg-gradient-to-br from-gray-50 via-white to-blue-50"
-      style={{
-        fontFamily: "DM Sans",
-        height: `${(agentsData.length + 2) * 170}vh`, // Extra space for smooth scrolling
-      }}
+      className="bg-gradient-to-br from-gray-50 via-white to-blue-50 py-20"
+      style={{ fontFamily: "DM Sans" }}
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-indigo-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
-      </div>
+      <div className="max-w-7xl mx-auto px-4">
 
-      {/* Sticky Container */}
-      <div className="sticky top-10 bottom-10 h-screen overflow-hidden">
-        <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mt-18">
-            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gray-100 text-gray-600 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-              Meet your AI Workforce
-            </div>
-            <p className="text-[1.3rem] md:text-[3rem] font-bold text-gray-900 mb-6 leading-tight">
-              Deploy enterprise-grade AI agents tailored to your business
-            </p>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block px-6 py-3 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium mb-4">
+            Meet your AI Workforce
           </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Deploy enterprise-grade AI agents tailored to your business
+          </h2>
+        </div>
 
-          {/* Cards Container with Smooth Continuous Scroll */}
-          <div className="relative w-6xl mx-auto w-full h-[800px]">
-            {agentsData.map((agent, index) => {
-              // Calculate the scroll range for each card
-              const cardHeight = 100; // Viewport height percentage per card
-              const overlapRange = 30; // How much cards overlap in their scroll ranges
-
-              // Each card has a longer scroll range with overlap
-              const startScroll =
-                (index * cardHeight) / (agentsData.length * 100);
-              const peakScroll =
-                ((index + 0.5) * cardHeight) / (agentsData.length * 100);
-              const endScroll =
-                ((index + 1.5) * cardHeight) / (agentsData.length * 100);
-
-              // Smooth Y movement - previous card moves up slightly then disappears
-              const y = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.1),
-                  startScroll,
-                  peakScroll,
-                  peakScroll + 0.1,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [
-                  window.innerHeight, // Start below viewport
-                  window.innerHeight * 0.3, // Enter from below
-                  0, // Center position
-                  -50, // Move up slightly when next card arrives
-                  -100, // Continue moving up a bit
-                  -150, // Final position before disappearing
-                ]
-              );
-
-              // Scale animation - shrinks when being replaced
-              const scale = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.05),
-                  peakScroll - 0.05,
-                  peakScroll,
-                  peakScroll + 0.05,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [
-                  0.85, // Start smaller
-                  0.95, // Growing
-                  1, // Peak size
-                  0.95, // Start shrinking
-                  0.85, // Smaller when moving back
-                  0.75, // Even smaller before disappearing
-                ]
-              );
-
-              // Scale Y separately for height compression
-              const scaleY = useTransform(
-                scrollYProgress,
-                [
-                  peakScroll,
-                  peakScroll + 0.05,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [
-                  1, // Normal height
-                  0.9, // Start compressing height
-                  0.7, // More compressed
-                  0.5, // Very compressed before disappearing
-                ]
-              );
-
-              // Opacity - cards are always fully visible
-              const opacity = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.1),
-                  startScroll,
-                  peakScroll - 0.02,
-                  peakScroll + 0.02,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [
-                  1, // Fully visible from start
-                  1, // Stay visible
-                  1, // Stay visible at peak
-                  1, // Stay visible
-                  1, // Stay visible when behind
-                  1, // Always visible
-                ]
-              );
-
-              // Dynamic z-index based on scroll position
-              const zIndex = useTransform(
-                scrollYProgress,
-                [startScroll - 0.1, startScroll, peakScroll, endScroll],
-                [
-                  1000 - index * 10, // Higher z-index for later cards when entering
-                  1000 - index * 10, // Keep high z-index
-                  1000 - index * 10, // Stay in front at peak
-                  10 + index, // Lower z-index when being replaced
-                ]
-              );
-
-              // Rotation for added smoothness (subtle)
-              const rotateX = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.1),
-                  peakScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [
-                  -5, // Slight backward tilt when entering
-                  0, // No rotation at peak
-                  0, // Stay flat (no forward tilt)
-                ]
-              );
-
-              return (
-                <motion.div
-                  key={agent.id}
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    y,
-                    scale,
-                    scaleY,
-                    opacity,
-                    zIndex,
-                    rotateX,
-                    perspective: 1000,
-                  }}
-                  className="px-4"
-                >
-                  <AgentCard agent={agent} index={index} />
-                </motion.div>
-              );
-            })}
-          </div>
+        {/* Cards stacked normally */}
+        <div className="space-y-12">
+          {agentsData.map((agent) => (
+            <AgentCard key={agent.id} agent={agent} />
+          ))}
         </div>
       </div>
     </section>
