@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import image from '../assets/world-map.png';
+import image from "../assets/world-map.png";
 import { AlignLeft } from "lucide-react";
 
 const WorldMapSection = () => {
@@ -132,41 +132,59 @@ const WorldMapSection = () => {
   return (
     <section
       id="world-map-section"
-      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#F9F9FB] relative overflow-hidden"
+      className="py-0 sm:pt-12 md:pt-16 lg:pt-10 bg-[#F9F9FB] relative overflow-hidden"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+        <div className="text-center mb-0 lg:mb-12 mt-5 md:mt-0">
           <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gray-100 text-gray-600 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             Services
           </div>
-          <h2 className={`text-[2rem] md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2 sm:mb-4 leading-tight transition-all duration-500 ${
-            animationTriggered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
+          <h2
+            className={`text-[2rem] md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2 sm:mb-4 leading-tight transition-all duration-500 ${
+              animationTriggered
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
             Where Our <span className="text-blue-600">Leads</span> Come From
           </h2>
-          <p className={`text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto transition-all duration-500 delay-100 ${
-            animationTriggered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-            Access verified data from <span className="font-semibold text-blue-600">700M+ global records</span> across all major industries and regions
+          <p
+            className={`text-sm sm:text-base md:text-[1.5rem] text-gray-600 max-w-3xl mx-auto transition-all duration-500 delay-100 ${
+              animationTriggered
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
+            Access verified data from{" "}
+            <span className="font-semibold text-blue-600">
+              700M+ global records
+            </span>{" "}
+            across all major industries and regions
           </p>
         </div>
 
         {/* Main Two-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-8 lg:mb-12">
-          {/* Left Column - Map */}
-          <div className={`transition-all duration-700 delay-200 ${
-            animationTriggered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-          }`}>
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-8 lg:mb-12"> */}
+        {/* Left Column - Map */}
+        {/* <div
+            className={`transition-all duration-700 delay-200 ${
+              animationTriggered
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-8"
+            }`}
+          >
             <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200 p-4 sm:p-6 h-full">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Regional Coverage</h3>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+                Regional Coverage
+              </h3>
               <div className="relative w-full aspect-[16/10]">
                 <img
                   src={image}
                   alt="World Map"
                   className="w-full h-full object-contain"
                 />
-                
+
                 <svg
                   viewBox="0 0 600 400"
                   className="absolute inset-0 text-black w-full h-full pointer-events-none"
@@ -193,7 +211,9 @@ const WorldMapSection = () => {
                         fill={region.color}
                         filter="url(#glow)"
                         className={`transition-all duration-500 ${
-                          animationTriggered ? "opacity-90 scale-100" : "opacity-0 scale-0"
+                          animationTriggered
+                            ? "opacity-90 scale-100"
+                            : "opacity-0 scale-0"
                         }`}
                         style={{ transitionDelay: `${index * 100 + 300}ms` }}
                       />
@@ -204,7 +224,9 @@ const WorldMapSection = () => {
                         r="4%"
                         fill="white"
                         className={`transition-all duration-500 ${
-                          animationTriggered ? "opacity-20 scale-100" : "opacity-0 scale-0"
+                          animationTriggered
+                            ? "opacity-20 scale-100"
+                            : "opacity-0 scale-0"
                         }`}
                         style={{ transitionDelay: `${index * 100 + 350}ms` }}
                       />
@@ -216,9 +238,9 @@ const WorldMapSection = () => {
                         className={`fill-gray-800 font-bold transition-all ${
                           animationTriggered ? "opacity-100" : "opacity-0"
                         }`}
-                        style={{ 
-                          fontSize: 'clamp(15px, 1.5vw, 20px)',
-                          transitionDelay: `${index * 100 + 400}ms` 
+                        style={{
+                          fontSize: "clamp(15px, 1.5vw, 20px)",
+                          transitionDelay: `${index * 100 + 400}ms`,
                         }}
                       >
                         {region.name}
@@ -231,9 +253,9 @@ const WorldMapSection = () => {
                         className={`fill-white font-bold transition-all drop-shadow-lg ${
                           animationTriggered ? "opacity-100" : "opacity-0"
                         }`}
-                        style={{ 
-                          fontSize: 'clamp(14px, 2vw, 20px)',
-                          transitionDelay: `${index * 100 + 450}ms` 
+                        style={{
+                          fontSize: "clamp(14px, 2vw, 20px)",
+                          transitionDelay: `${index * 100 + 450}ms`,
                         }}
                       >
                         {region.percentage}%
@@ -241,15 +263,17 @@ const WorldMapSection = () => {
                     </g>
                   ))}
                 </svg>
-              </div>
+              </div> */}
 
-              {/* Features below map */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2 sm:gap-3 mt-6">
+        {/* Features below map */}
+        {/* <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2 sm:gap-3 mt-6">
                 {features.map((feature, index) => (
                   <div
                     key={index}
                     className={`flex items-center gap-2 sm:gap-3 bg-[#F5F5FF] px-3 sm:px-4 py-2 sm:py-3 rounded-lg transition-all duration-500 ${
-                      animationTriggered ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                      animationTriggered
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-4"
                     }`}
                     style={{ transitionDelay: `${index * 100 + 600}ms` }}
                   >
@@ -260,21 +284,29 @@ const WorldMapSection = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
 
-          {/* Right Column - Industry Stats */}
-          <div className={`transition-all duration-700 delay-200 ${
-            animationTriggered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-          }`}>
+        {/* Right Column - Industry Stats */}
+        {/* <div
+            className={`transition-all duration-700 delay-200 ${
+              animationTriggered
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-8"
+            }`}
+          >
             <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200 p-4 sm:p-6 h-full flex flex-col">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Industry Coverage</h3>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+                Industry Coverage
+              </h3>
 
               <div className="space-y-3 sm:space-y-4 mb-6 flex-grow">
                 {industryStats.map((item, index) => (
                   <div
                     key={index}
                     className={`transition-all duration-500 ${
-                      animationTriggered ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                      animationTriggered
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 translate-x-8"
                     }`}
                     style={{ transitionDelay: `${index * 75 + 250}ms` }}
                   >
@@ -290,8 +322,10 @@ const WorldMapSection = () => {
                       <div
                         className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full rounded-full transition-all duration-700 ease-out"
                         style={{
-                          width: animationTriggered ? `${counters[item.key]}%` : '0%',
-                          transitionDelay: `${index * 75 + 50}ms`
+                          width: animationTriggered
+                            ? `${counters[item.key]}%`
+                            : "0%",
+                          transitionDelay: `${index * 75 + 50}ms`,
                         }}
                       />
                     </div>
@@ -299,45 +333,66 @@ const WorldMapSection = () => {
                 ))}
               </div>
 
-              <div className={`bg-[#F5F5FF] text-left rounded-xl p-4 sm:p-5 transition-all duration-500 ${
-                animationTriggered ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`} style={{ transitionDelay: '700ms' }}>
-                <h4 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3">Why Choose Our Data?</h4>
+              <div
+                className={`bg-[#F5F5FF] text-left rounded-xl p-4 sm:p-5 transition-all duration-500 ${
+                  animationTriggered
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-95"
+                }`}
+                style={{ transitionDelay: "700ms" }}
+              >
+                <h4 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3">
+                  Why Choose Our Data?
+                </h4>
                 <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">✓</span>
-                    <span>Real-time updates every hour ensure fresh, actionable leads</span>
+                    <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">
+                      ✓
+                    </span>
+                    <span>
+                      Real-time updates every hour ensure fresh, actionable
+                      leads
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">✓</span>
-                    <span>Triple-verified accuracy with 99% confidence rating</span>
+                    <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">
+                      ✓
+                    </span>
+                    <span>
+                      Triple-verified accuracy with 99% confidence rating
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">✓</span>
-                    <span>Full CCPA & GDPR compliance for legal peace of mind</span>
+                    <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">
+                      ✓
+                    </span>
+                    <span>
+                      Full CCPA & GDPR compliance for legal peace of mind
+                    </span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-      </div>
-      {/* Bottom Stats Grid */}
-        <div className="bg-[#E9EAFF]  p-6 sm:p-8 lg:p-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-bold text-[#6364F2] mb-1 sm:mb-2">
-                  {stat.value}
+        <div className="my-15 h-80 md:h-60 lg:h-50">
+          <div className=" p-6 sm:p-8 lg:p-12 w-full">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-2 lg:gap-2">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-[1.8rem] md:text-4xl lg:text-7xl font-bold text-[#6364F2] mb-1 sm:mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-md lg:text-lg text-black font-bold">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-xs sm:text-sm lg:text-lg text-gray-800 font-bold">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
+      </div>
     </section>
   );
 };

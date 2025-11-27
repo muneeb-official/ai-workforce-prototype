@@ -64,7 +64,7 @@ const OfferingCard = ({ offering, index, isVisible }) => {
 
   return (
     <div
-      className={`bg-[#FBFBFB] p-5 rounded-[0.5rem] transition-all duration-1000 ease-out ${
+      className={`bg-[#FAFAFa] p-5 rounded-[0.5rem] transition-all duration-1000 ease-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
       style={{
@@ -73,25 +73,22 @@ const OfferingCard = ({ offering, index, isVisible }) => {
       }}
     >
       <div className="flex flex-col items-start text-left">
-        {/* Icon and Title */}
-        <div className="flex items-center gap-0 mb-3 -ml-3">
-          <div
-            className="w-12 h-12 rounded-lg text-bold flex items-center justify-center"
-            // style={{ backgroundColor: `${offering.color}20` }}
-          >
-            <IconComponent
-              size={24}
-              style={{ color: offering.color }}
-              strokeWidth={2.5}
-            />
-          </div>
-          <h3 className="text-md md:text-xl font-semibold text-gray-900">
-            {offering.title}
-          </h3>
+        {/* Icon */}
+        <div className="mb-4">
+          <IconComponent
+            size={30}
+            style={{ color: "#155DFC" }}
+            strokeWidth={2}
+          />
         </div>
 
+        {/* Title */}
+        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
+          {offering.title}
+        </h3>
+
         {/* Description */}
-        <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+        <p className="text-gray-500 text-sm leading-relaxed">
           {offering.description}
         </p>
       </div>
@@ -152,7 +149,7 @@ const OtherOfferings = () => {
         </div>
 
         {/* Offerings Grid - 2 rows x 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6  gap-y-10 md:gap-y-8 mb-20 mx-8 md:mx-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-6  gap-y-5 md:gap-y-8 mb-0 md:mb-10 mx-2 md:mx-0">
           {offeringsData.map((offering, index) => (
             <OfferingCard
               key={offering.id}
