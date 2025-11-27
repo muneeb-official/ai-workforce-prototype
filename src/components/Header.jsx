@@ -1,6 +1,6 @@
 // Header.jsx
-import React, { useState, useEffect } from 'react';
-import logo from '../assets/logo.svg';
+import React, { useState, useEffect } from "react";
+import logo from "../assets/logo.svg";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,14 +10,14 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMobileMenuOpen(false);
   };
@@ -28,20 +28,16 @@ const Header = () => {
   // ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50  transition-all duration-300 ${isScrolled
-      ? 'bg-transparent bg-white '
-      : 'bg-transparent'
-      }`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50  transition-all duration-300 ${
+        isScrolled ? "bg-transparent bg-white " : "bg-transparent"
+      }`}
+    >
       <div className="w-full mx-auto px-5 sm:px-10 lg:px-10">
-        <div className="flex items-center justify-between h-18 md:h-23">
-
+        <div className="flex items-center justify-between h-19 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img
-              src={logo}
-              alt="AI workforce Logo"
-              className=""
-            />
+            <img src={logo} alt="AI workforce Logo" className="h-13 md:h-16" />
           </div>
 
           {/* Desktop Navigation */}
@@ -63,11 +59,11 @@ const Header = () => {
           </nav> */}
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="">
             <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-md hover:shadow-lg hover:bg-blue-800 hover:scale-105 transition-all duration-200 flex items-center space-x-2"
-              style={{ fontFamily: 'DM Sans' }}
+              onClick={() => scrollToSection("contact")}
+              className="bg-blue-600 text-white px-2 md:px-4 lg:px-5 py-2 md:py-2 lg:py-2.25  rounded-full text-md hover:shadow-lg hover:bg-blue-800 hover:scale-105 transition-all duration-200 flex items-center space-x-2"
+              style={{ fontFamily: "DM Sans" }}
             >
               <span>Contact Us</span>
               <svg
@@ -83,22 +79,34 @@ const Header = () => {
                   d="M7 17L17 7M10 7h7v7"
                 />
               </svg>
-
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-blue-600 focus:outline-none"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                  d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d={
+                    isMobileMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
+                />
               </svg>
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Menu */}
@@ -110,22 +118,42 @@ const Header = () => {
                   key={link.name}
                   onClick={() => scrollToSection(link.id)}
                   className="text-gray-700 hover:text-blue-600 font-medium text-left text-sm flex items-center"
-                  style={{ fontFamily: 'DM Sans' }}
+                  style={{ fontFamily: "DM Sans" }}
                 >
                   {link.name}
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  <svg
+                    className="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection("contact")}
                 className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm w-fit flex items-center space-x-2"
-                style={{ fontFamily: 'DM Sans' }}
+                style={{ fontFamily: "DM Sans" }}
               >
                 <span>Sign Up Now</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </button>
             </div>
