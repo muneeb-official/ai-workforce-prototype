@@ -1,5 +1,6 @@
 // ProfessionalFooter.jsx
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
 const ProfessionalFooter = () => {
@@ -16,20 +17,17 @@ const ProfessionalFooter = () => {
 
   const footerLinks = {
     UsefulLinks: [
-      { name: "Terms Of Use", action: () => scrollToSection("agents") },
-      { name: "Privacy Policies", action: () => scrollToSection("agents") },
-      { name: "Cookies Policies", action: () => scrollToSection("agents") },
-      {
-        name: "Book for Early Access",
-        action: () => scrollToSection("contact"),
-      },
+      { name: "Terms Of Use", path: "/terms" },
+      { name: "Privacy Policies", path: "/privacy" },
+      { name: "Cookies Policies", path: "/cookies" },
+      { name: "Book for Early Access", path: "/#contact", isScroll: true },
     ],
   };
 
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/company/ai-workforce-uk",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
           <path
@@ -63,8 +61,8 @@ const ProfessionalFooter = () => {
       ),
     },
     {
-      name: "YouTube",
-      href: "#",
+      name: "facebook",
+      href: "https://www.facebook.com/people/AI-Workforce/61584346469942/",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
           <path
@@ -286,12 +284,21 @@ const ProfessionalFooter = () => {
               <ul className="space-y-3">
                 {footerLinks.UsefulLinks.map((link, index) => (
                   <li key={index}>
-                    <button
-                      onClick={link.action}
-                      className="text-gray-600 hover:text-[#7770FF] transition-all duration-300 text-sm md:text-base font-medium text-left"
-                    >
-                      {link.name}
-                    </button>
+                    {link.isScroll ? (
+                      <button
+                        onClick={() => scrollToSection("contact")}
+                        className="text-gray-600 hover:text-[#7770FF] transition-all duration-300 text-sm md:text-base font-medium text-left"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className="text-gray-600 hover:text-[#7770FF] transition-all duration-300 text-sm md:text-base font-medium text-left"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

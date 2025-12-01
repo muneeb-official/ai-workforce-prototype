@@ -51,10 +51,9 @@ const agentsData = [
         description: "Build smarter, reach faster, and grow effortlessly.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#E3EDF8",
   },
-
   {
     id: "b2b-lead-builder",
     title: "B2B Lead Builder Agent",
@@ -82,10 +81,9 @@ const agentsData = [
           "Boost conversions with precise, targeted prospecting at scale.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#9A80D2",
   },
-
   {
     id: "organic-lead-builder",
     title: "Organic Lead Builder Agent",
@@ -113,10 +111,9 @@ const agentsData = [
           "Provides at least 150 organic leads every month effortlessly.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#ECF3FF",
   },
-
   {
     id: "cold-inbound",
     title: "Cold Inbound Agent",
@@ -145,10 +142,9 @@ const agentsData = [
           "Build consistent, effective outreach flows that boost engagement.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#ECF1FF",
   },
-
   {
     id: "call-outreach",
     title: "Call Outreach Agent",
@@ -177,10 +173,9 @@ const agentsData = [
           "Ensures every call feels tailored, timely, and high-quality.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#587DFE",
   },
-
   {
     id: "brochure-creation",
     title: "Brochure Creation Agent",
@@ -200,7 +195,7 @@ const agentsData = [
       {
         title: "Tailored Brand Styling",
         description:
-          "Generate brochures that match your brand’s visual identity.",
+          "Generate brochures that match your brand's visual identity.",
       },
       {
         title: "Versatile Content Formats",
@@ -208,21 +203,20 @@ const agentsData = [
           "Produce pitch decks, eBooks, and presentations without a design team.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#ECF3FF",
   },
-
   {
     id: "seo-blog-engine",
     title: "SEO Blog & Content Engine Agent",
     subtitle: "SEO & Content Automation",
     briefDescription:
-      "The Blog & Content Engine Agent turns your ideas into SEO-optimized content, analyzes top blogs, and writes in your brand’s voice. It also plans and auto-schedules LinkedIn posts, giving you a full week of content from one prompt.",
+      "The Blog & Content Engine Agent turns your ideas into SEO-optimized content, analyzes top blogs, and writes in your brand's voice. It also plans and auto-schedules LinkedIn posts, giving you a full week of content from one prompt.",
     features: [
       {
         title: "SEO-Optimized Content Creation",
         description:
-          "Produces high-performing, search-ready content tailored to your brand’s voice.",
+          "Produces high-performing, search-ready content tailored to your brand's voice.",
       },
       {
         title: "Smart Blog Analysis",
@@ -240,10 +234,9 @@ const agentsData = [
           "Generates and schedules an entire week of posts from a single input.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#ECF3FF",
   },
-
   {
     id: "personal-assistant",
     title: "Personal Assistant Agent",
@@ -272,10 +265,9 @@ const agentsData = [
           "Manages your work across web and Telegram, helping you stay focused.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#FFF6EC",
   },
-
   {
     id: "meeting-note-taker",
     title: "Meeting Note Taker / Summariser Agent",
@@ -304,8 +296,8 @@ const agentsData = [
           "Keeps you organised by handling all notes so you can stay focused.",
       },
     ],
-    bgColor: "#F8F9FC",
-    customColor: "#1A1F36",
+    cardBgColor: "#F4F4F6",
+    imageBgColor: "#ECEDFC",
   },
 ];
 
@@ -314,190 +306,159 @@ const scrollToSection = (sectionId) => {
   if (element) element.scrollIntoView({ behavior: "smooth" });
 };
 
-const AgentCard = ({ agent, index, image }) => {
+// Mobile Card Component - Static with expandable content
+const MobileAgentCard = ({ agent, image }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const isImageLeft = index % 2 === 1;
-
-  const featureBoxes = agent.features;
 
   return (
-    <div style={{ fontFamily: "DM Sans", height: "100%" }}>
-      <div className="relative rounded-2xl overflow-hidden bg-[#F4F4F6] h-auto md:h-130 mx-2 md:mx-0">
-        {/* Mobile Layout */}
-        <div className="flex flex-col lg:hidden">
-          {/* Image Section - Smaller when expanded */}
-          <div
-            className="relative flex items-center justify-center overflow-hidden rounded-t-2xl"
-            style={{
-              background: `linear-gradient(135deg, ${agent.customColor}15, ${agent.customColor}30)`,
-            }}
-          >
-            <img
-              src={image}
-              alt={agent.title}
-              className={`w-full object-contain transition-all duration-300 ${
-                isExpanded ? "max-h-[140px]" : "max-h-[200px]"
-              }`}
-            />
-          </div>
+    <div
+      className="rounded-2xl overflow-hidden mx-4"
+      style={{
+        fontFamily: "DM Sans",
+        backgroundColor: agent.cardBgColor || "#F4F4F6",
+      }}
+    >
+      {/* Image Section */}
+      <div
+        className="relative w-full flex items-center justify-center p-4"
+        style={{
+          backgroundColor: agent.imageBgColor || "#E3EDF8",
+          minHeight: "120px",
+        }}
+      >
+        <img
+          src={image}
+          alt={agent.title}
+          className="w-auto h-auto  object-contain"
+        />
+      </div>
 
-          {/* Content Section */}
-          <div className="p-4 flex flex-col text-left">
-            <h3 className="text-[1.1rem] font-bold text-gray-900 mb-2 leading-tight">
-              {agent.title}
-            </h3>
+      {/* Content Section */}
+      <div className="p-5 text-left">
+        <h3 className="text-[1.3rem] font-bold text-gray-900 mb-1 leading-tight">
+          {agent.title}
+        </h3>
 
-            <p
-              className={`text-[0.8rem] text-gray-600 leading-relaxed mb-3 ${
-                isExpanded ? "line-clamp-2" : "line-clamp-4"
-              }`}
-            >
-              {agent.briefDescription}
+        <p className="text-[0.9rem] text-gray-600 leading-relaxed mb-1">
+          {agent.briefDescription}
+        </p>
+
+        {/* Features Grid - Expandable (NO blue border) */}
+        <div
+          className={`grid grid-cols-1 gap-1.5 text-left overflow-hidden transition-all duration-500 ease-in-out ${
+            isExpanded ? "max-h-[500px] opacity-100 mb-4" : "max-h-0 opacity-0"
+          }`}
+        >
+          {agent.features.map((feature, idx) => (
+            <div key={idx} className="bg-white rounded-lg p-3">
+              <h4 className="text-[0.9rem] font-bold text-gray-900 mb-1 leading-tight">
+                {feature.title}
+              </h4>
+              <p className="text-[0.75rem] text-gray-600 leading-snug">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Read More / Read Less button */}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="inline-flex items-center gap-1 text-blue-600 font-semibold text-sm mb-4"
+        >
+          <span className="underline">
+            {isExpanded ? "Read Less" : "Read More"}
+          </span>
+          <ArrowUpRight
+            size={14}
+            strokeWidth={2.5}
+            className={`transition-transform duration-300 ${
+              isExpanded ? "rotate-90" : ""
+            }`}
+          />
+        </button>
+
+        {/* Get this Agent button */}
+        <button
+          onClick={() => scrollToSection("contact")}
+          className="w-full flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-full py-3 text-gray-800 font-semibold text-sm hover:bg-gray-50 transition-all duration-300 shadow-sm"
+        >
+          Get this Agent
+          <ArrowUpRight size={14} strokeWidth={2.5} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// Desktop Card Component - With animation
+const DesktopAgentCard = ({ agent, index, image }) => {
+  const isImageLeft = index % 2 === 1;
+
+  const ContentSection = () => (
+    <div className="p-8 xl:p-10 flex flex-col justify-center h-full">
+      <h3 className="text-[1.75rem] font-bold text-gray-900 mb-3 leading-tight">
+        {agent.title}
+      </h3>
+      <p className="text-[0.95rem] text-gray-600 leading-relaxed mb-6">
+        {agent.briefDescription}
+      </p>
+      <div className="grid grid-cols-2 gap-3 mb-6">
+        {agent.features.map((feature, idx) => (
+          <div key={idx} className="bg-white rounded-lg p-3.5">
+            <h4 className="text-sm font-bold text-gray-900 mb-1">
+              {feature.title}
+            </h4>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              {feature.description}
             </p>
-
-            {/* Features Grid - Only when expanded */}
-            {isExpanded && (
-              <div className="grid grid-cols-2 gap-2 mb-3 animate-fadeIn">
-                {featureBoxes.map((feature, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-lg p-2.5 border-l-2 border-blue-500"
-                  >
-                    <h4 className="text-[0.7rem] font-bold text-gray-900 mb-0.5 leading-tight">
-                      {feature.title}
-                    </h4>
-                    <p className="text-[0.6rem] text-gray-600 leading-snug">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Read More / Read Less button */}
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center gap-1 text-blue-600 font-semibold text-xs mb-3 self-start"
-            >
-              <span className="underline">
-                {isExpanded ? "Read Less" : "Read More"}
-              </span>
-              <ArrowUpRight
-                size={12}
-                strokeWidth={2.5}
-                className={`transition-transform duration-300 ${
-                  isExpanded ? "rotate-90" : ""
-                }`}
-              />
-            </button>
-
-            {/* Get this Agent button - Always at bottom */}
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="w-full flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-full py-2.5 text-gray-800 font-semibold text-xs hover:bg-gray-50 transition-all duration-300 shadow-sm mt-auto"
-            >
-              Get this Agent
-              <ArrowUpRight size={12} strokeWidth={2.5} />
-            </button>
           </div>
-        </div>
+        ))}
+      </div>
+      <button
+        onClick={() => scrollToSection("contact")}
+        className="inline-flex items-center gap-2 text-blue-600 font-medium text-base hover:gap-3 hover:underline transition-all duration-300 w-fit"
+      >
+        Get this Agent
+        <ArrowUpRight size={16} strokeWidth={2.5} />
+      </button>
+    </div>
+  );
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:grid grid-cols-2 gap-0 h-full">
-          {isImageLeft ? (
-            <>
-              {/* Image Section */}
-              <div
-                className="relative flex items-center justify-center overflow-hidden order-1 rounded-l-2xl"
-                style={
-                  {
-                    // background: `linear-gradient(135deg, ${agent.customColor}15, ${agent.customColor}30)`,
-                  }
-                }
-              >
-                <img
-                  src={image}
-                  alt={agent.title}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              {/* Content Section */}
-              <div className="order-2 p-4 lg:p-12 flex flex-col justify-between text-left">
-                <div>
-                  <h3 className="text-[1.6rem] font-bold text-gray-900 mb-5 leading-tight">
-                    {agent.title}
-                  </h3>
-                  <p className="text-[0.95rem] text-gray-700 leading-relaxed mb-8">
-                    {agent.briefDescription}
-                  </p>
-                  <div className="grid grid-cols-2 gap-3 mb-8">
-                    {featureBoxes.map((feature, idx) => (
-                      <div key={idx} className="bg-white rounded p-3">
-                        <h4 className="text-sm font-bold text-gray-900 mb-1">
-                          {feature.title}
-                        </h4>
-                        <p className="text-xs text-gray-600">
-                          {feature.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="flex items-center gap-2 text-blue-600 font-medium text-md hover:gap-3 hover:underline transition-all duration-300"
-                  >
-                    Get this Agent
-                    <ArrowUpRight size={16} strokeWidth={2.5} />
-                  </button>
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              {/* Content Section */}
-              <div className="order-1 p-4 lg:p-12 flex flex-col justify-between text-left">
-                <div>
-                  <h3 className="text-[1.6rem] font-bold text-gray-900 mb-5 leading-tight">
-                    {agent.title}
-                  </h3>
-                  <p className="text-[0.95rem] text-gray-700 leading-relaxed mb-8">
-                    {agent.briefDescription}
-                  </p>
-                  <div className="grid grid-cols-2 gap-3 mb-8">
-                    {featureBoxes.map((feature, idx) => (
-                      <div key={idx} className="bg-white rounded p-3">
-                        <h4 className="text-sm font-bold text-gray-900 mb-1">
-                          {feature.title}
-                        </h4>
-                        <p className="text-xs text-gray-600">
-                          {feature.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="flex items-center gap-2 text-blue-600 font-medium text-md hover:gap-3 hover:underline transition-all duration-300"
-                  >
-                    Get this Agent
-                    <ArrowUpRight size={16} strokeWidth={2.5} />
-                  </button>
-                </div>
-              </div>
-              {/* Image Section */}
-              <div
-                className="relative flex items-center justify-center overflow-hidden order-2 rounded-r-2xl"
-                style={
-                  {
-                    // background: `linear-gradient(135deg, ${agent.customColor}15, ${agent.customColor}30)`,
-                  }
-                }
-              >
-                <img src={image} alt={agent.title} className="w-full h-full " />
-              </div>
-            </>
-          )}
-        </div>
+  const ImageSection = () => (
+    <div
+      className="relative flex items-center justify-center h-full p-6"
+      style={{ backgroundColor: agent.imageBgColor || "#E3EDF8" }}
+    >
+      <img
+        src={image}
+        alt={agent.title}
+        className="w-full h-full  object-contain"
+      />
+    </div>
+  );
+
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{
+        fontFamily: "DM Sans",
+        backgroundColor: agent.cardBgColor || "#F4F4F6",
+        height: "480px",
+      }}
+    >
+      <div className="grid grid-cols-2 h-full">
+        {isImageLeft ? (
+          <>
+            <ImageSection />
+            <ContentSection />
+          </>
+        ) : (
+          <>
+            <ContentSection />
+            <ImageSection />
+          </>
+        )}
       </div>
     </div>
   );
@@ -513,141 +474,169 @@ const UpdateAgentsNetwork = () => {
   return (
     <section
       ref={containerRef}
-      className="relative "
-      style={{
-        fontFamily: "DM Sans",
-        height: `${(agentsData.length + 2) * 170}vh`,
-      }}
+      className="relative"
+      style={{ fontFamily: "DM Sans" }}
     >
+      {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-indigo-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="sticky top-10 bottom-10 h-screen overflow-hidden">
-        <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mt-11">
-            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gray-100 text-gray-600 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-              Meet your AI Workforce
-            </div>
-            <p className="text-[1.3rem] md:text-[2.5rem] font-bold text-gray-900 mb-5 leading-tight">
-              Recruit enterprise-grade AI agents today{" "}
-              <span className="text-blue-600">fully customisable</span>
-            </p>
+      {/* Mobile Version - Static scroll (NO animation) */}
+      <div className="lg:hidden py-12">
+        <div className="text-center mb-8 px-4">
+          <div className="inline-block px-4 py-2 rounded-lg bg-gray-100 text-gray-600 text-xs font-medium mb-4">
+            Meet your AI Workforce
           </div>
+          <h2 className="text-xl font-bold text-gray-900 leading-tight">
+            Recruit enterprise-grade AI agents today{" "}
+            <span className="text-blue-600">fully customisable</span>
+          </h2>
+        </div>
 
-          <div className="relative mx-auto w-full h-[800px]">
-            {agentsData.map((agent, index) => {
-              const cardHeight = 100;
-              const startScroll =
-                (index * cardHeight) / (agentsData.length * 100);
-              const peakScroll =
-                ((index + 0.5) * cardHeight) / (agentsData.length * 100);
-              const endScroll =
-                ((index + 2.5) * cardHeight) / (agentsData.length * 100);
+        <div className="space-y-6">
+          {agentsData.map((agent, index) => (
+            <MobileAgentCard
+              key={agent.id}
+              agent={agent}
+              image={agentImages[index]}
+            />
+          ))}
+        </div>
+      </div>
 
-              const y = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.1),
-                  startScroll,
-                  peakScroll,
-                  peakScroll + 0.1,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [
-                  window.innerHeight,
-                  window.innerHeight * 0.3,
-                  0,
-                  -50,
-                  -50,
-                  -150,
-                ]
-              );
+      {/* Desktop Version - With scroll animation */}
+      <div
+        className="hidden lg:block relative"
+        style={{ height: `${(agentsData.length + 2) * 170}vh` }}
+      >
+        <div className="sticky top-10 h-screen overflow-hidden">
+          <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mt-8">
+              <div className="inline-block px-6 py-3 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium mb-5">
+                Meet your AI Workforce
+              </div>
+              <p className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                Recruit enterprise-grade AI agents today{" "}
+                <span className="text-blue-600">fully customisable</span>
+              </p>
+            </div>
 
-              const scale = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.05),
-                  peakScroll - 0.05,
-                  peakScroll,
-                  peakScroll + 0.05,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [0.85, 0.95, 1, 0.95, 0.85, 0.75]
-              );
+            <div className="relative mx-auto w-full h-[520px]">
+              {agentsData.map((agent, index) => {
+                const cardHeight = 100;
+                const startScroll =
+                  (index * cardHeight) / (agentsData.length * 100);
+                const peakScroll =
+                  ((index + 0.5) * cardHeight) / (agentsData.length * 100);
+                const endScroll =
+                  ((index + 2.5) * cardHeight) / (agentsData.length * 100);
 
-              const scaleY = useTransform(
-                scrollYProgress,
-                [
-                  peakScroll,
-                  peakScroll + 0.05,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [1, 0.9, 0.7, 0.5]
-              );
+                const y = useTransform(
+                  scrollYProgress,
+                  [
+                    Math.max(0, startScroll - 0.1),
+                    startScroll,
+                    peakScroll,
+                    peakScroll + 0.1,
+                    endScroll,
+                    Math.min(1, endScroll + 0.1),
+                  ],
+                  [
+                    typeof window !== "undefined" ? window.innerHeight : 800,
+                    typeof window !== "undefined"
+                      ? window.innerHeight * 0.3
+                      : 240,
+                    0,
+                    -50,
+                    -50,
+                    -150,
+                  ]
+                );
 
-              const opacity = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.1),
-                  startScroll,
-                  peakScroll - 0.02,
-                  peakScroll + 0.02,
-                  endScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [1, 1, 1, 1, 1, 1]
-              );
+                const scale = useTransform(
+                  scrollYProgress,
+                  [
+                    Math.max(0, startScroll - 0.05),
+                    peakScroll - 0.05,
+                    peakScroll,
+                    peakScroll + 0.05,
+                    endScroll,
+                    Math.min(1, endScroll + 0.1),
+                  ],
+                  [0.85, 0.95, 1, 0.95, 0.85, 0.75]
+                );
 
-              const zIndex = useTransform(
-                scrollYProgress,
-                [startScroll - 0.1, startScroll, peakScroll, endScroll],
-                [
-                  1000 - index * 10,
-                  1000 - index * 10,
-                  1000 - index * 10,
-                  10 + index,
-                ]
-              );
+                const scaleY = useTransform(
+                  scrollYProgress,
+                  [
+                    peakScroll,
+                    peakScroll + 0.05,
+                    endScroll,
+                    Math.min(1, endScroll + 0.1),
+                  ],
+                  [1, 0.9, 0.7, 0.5]
+                );
 
-              const rotateX = useTransform(
-                scrollYProgress,
-                [
-                  Math.max(0, startScroll - 0.1),
-                  peakScroll,
-                  Math.min(1, endScroll + 0.1),
-                ],
-                [-5, 0, 0]
-              );
+                const opacity = useTransform(
+                  scrollYProgress,
+                  [
+                    Math.max(0, startScroll - 0.1),
+                    startScroll,
+                    peakScroll - 0.02,
+                    peakScroll + 0.02,
+                    endScroll,
+                    Math.min(1, endScroll + 0.1),
+                  ],
+                  [1, 1, 1, 1, 1, 1]
+                );
 
-              return (
-                <motion.div
-                  key={agent.id}
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    y,
-                    scale,
-                    scaleY,
-                    opacity,
-                    zIndex,
-                    rotateX,
-                    perspective: 1000,
-                  }}
-                  className="px-1"
-                >
-                  <AgentCard
-                    agent={agent}
-                    index={index}
-                    image={agentImages[index]}
-                  />
-                </motion.div>
-              );
-            })}
+                const zIndex = useTransform(
+                  scrollYProgress,
+                  [startScroll - 0.1, startScroll, peakScroll, endScroll],
+                  [
+                    1000 - index * 10,
+                    1000 - index * 10,
+                    1000 - index * 10,
+                    10 + index,
+                  ]
+                );
+
+                const rotateX = useTransform(
+                  scrollYProgress,
+                  [
+                    Math.max(0, startScroll - 0.1),
+                    peakScroll,
+                    Math.min(1, endScroll + 0.1),
+                  ],
+                  [-5, 0, 0]
+                );
+
+                return (
+                  <motion.div
+                    key={agent.id}
+                    style={{
+                      position: "absolute",
+                      width: "100%",
+                      y,
+                      scale,
+                      scaleY,
+                      opacity,
+                      zIndex,
+                      rotateX,
+                      perspective: 1000,
+                    }}
+                  >
+                    <DesktopAgentCard
+                      agent={agent}
+                      index={index}
+                      image={agentImages[index]}
+                    />
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
