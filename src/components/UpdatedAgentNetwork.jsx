@@ -396,7 +396,7 @@ const DesktopAgentCard = ({ agent, index, image }) => {
   const isImageLeft = index % 2 === 1;
 
   const ContentSection = () => (
-    <div className="p-8 xl:p-10 flex flex-col justify-center h-full">
+    <div className="p-8 xl:p-10 flex flex-col text-left justify-center w-full h-full">
       <h3 className="text-[1.75rem] font-bold text-gray-900 mb-3 leading-tight">
         {agent.title}
       </h3>
@@ -427,7 +427,7 @@ const DesktopAgentCard = ({ agent, index, image }) => {
 
   const ImageSection = () => (
     <div
-      className="relative flex items-center justify-center h-full p-6"
+      className="relative flex items-center justify-center h-full w-full p-6"
       style={{ backgroundColor: agent.imageBgColor || "#E3EDF8" }}
     >
       <img
