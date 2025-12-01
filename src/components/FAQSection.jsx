@@ -223,7 +223,7 @@ const CategorizedFAQSection = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-3 md:space-y-6 mb-20">
+        <div className="space-y-3 md:space-y-6 mb-20 mx-4 md:mx-0">
           {faqsByCategory[activeCategory].map((faq, index) => (
             <div
               key={index}

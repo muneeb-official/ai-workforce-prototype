@@ -1,5 +1,6 @@
 // Header.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
 const Header = () => {
@@ -36,9 +37,9 @@ const Header = () => {
       <div className="w-full mx-auto px-5 sm:px-10 lg:px-10">
         <div className="flex items-center justify-between h-19 md:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img src={logo} alt="AI workforce Logo" className="h-13 md:h-16" />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           {/* <nav className="hidden md:flex items-center space-x-8">

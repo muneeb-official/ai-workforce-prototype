@@ -7,6 +7,7 @@ const ContactSection = () => {
     firstName: "",
     lastName: "",
     location: "",
+    phone: "",
     email: "",
     message: "",
   });
@@ -14,6 +15,7 @@ const ContactSection = () => {
     firstName: false,
     lastName: false,
     location: false,
+    phone: false,
     email: false,
   });
   const [showPopup, setShowPopup] = useState(false);
@@ -57,6 +59,7 @@ const ContactSection = () => {
       firstName: !formData.firstName,
       lastName: !formData.lastName,
       location: !formData.location,
+      phone: !formData.phone,
       email: !formData.email,
     };
     setTouched(newTouched);
@@ -77,6 +80,7 @@ const ContactSection = () => {
       first_name: formData.firstName,
       last_name: formData.lastName,
       location: formData.location,
+      phone: formData.phone_number,
       email: formData.email,
       message: formData.message || "No message provided",
     };
@@ -94,6 +98,7 @@ const ContactSection = () => {
         firstName: "",
         lastName: "",
         location: "",
+        phone: "",
         email: "",
         message: "",
       });
@@ -101,6 +106,7 @@ const ContactSection = () => {
         firstName: false,
         lastName: false,
         location: false,
+        phone: false,
         email: false,
       });
     } catch (err) {
@@ -120,6 +126,7 @@ const ContactSection = () => {
       firstName: "first name",
       lastName: "last name",
       location: "location",
+      phone: "phone number",
       email: "email",
     };
     return names[field];
@@ -341,6 +348,27 @@ const ContactSection = () => {
                   )}
                 </div>
 
+                {/* Phone Number Field */}
+                <div>
+                  <label className={labelClassName("phone")}>
+                    Phone Number <span className="text-blue-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Enter your Phone Number"
+                    className={inputClassName("phone")}
+                  />
+                  {touched.phone && (
+                    <p className="text-red-500 text-xs mt-1">
+                      Please enter {getFieldName("phone")}
+                    </p>
+                  )}
+                </div>
+
                 <div>
                   <label className={labelClassName("email")}>
                     Email <span className="text-blue-500">*</span>
@@ -444,7 +472,7 @@ const ContactSection = () => {
               className="text-2xl font-bold text-gray-900 mb-4"
               style={{ fontFamily: "DM Sans" }}
             >
-              Message Sent Successfully!
+              We have received your request!
             </h3>
             <p className="text-gray-600 mb-6" style={{ fontFamily: "DM Sans" }}>
               Thank you for contacting AI Workforce. We'll get back to you
