@@ -23,7 +23,7 @@ const ProfessionalFooter = () => {
     if (location.pathname === "/") {
       const contactSection = document.getElementById("contact");
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" });
+        contactSection.scrollIntoView({ behavior: "instant" });
       }
     } else {
       navigate("/");
@@ -32,7 +32,7 @@ const ProfessionalFooter = () => {
         if (contactSection) {
           contactSection.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100);
+      }, 500);
     }
   };
 
@@ -576,7 +576,7 @@ const ProfessionalFooter = () => {
               {/* Copyright */}
               <div className="text-gray-600 text-center md:text-left">
                 <p className="font-semibold text-gray-800 text-sm md:text-base">
-                  © 2025 AI Workforce Ltd. All rights reserved.
+                  © 2025 AI Workforce All rights reserved.
                 </p>
                 <p className="text-xs md:text-sm mt-1 text-gray-500">
                   Transforming businesses with intelligent automation worldwide.
