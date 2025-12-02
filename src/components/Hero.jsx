@@ -8,7 +8,7 @@ const Hero = () => {
   const slides = [
     {
       title:
-        "AI Agents thats generates leads, create content, and manage tasks.",
+        "AI Agents that generates leads, create content, and manage tasks.",
     },
     {
       title: "AI Workforce Built to Scale Your Business",

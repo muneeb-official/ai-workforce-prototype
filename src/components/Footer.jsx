@@ -6,19 +6,26 @@ import logo from "../assets/logo.svg";
 const ProfessionalFooter = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const footerRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [showPopup, setShowPopup] = useState(false);
+  const [showNewsletterPopup, setShowNewsletterPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const closePopup = () => setShowPopup(false);
+  const closeNewsletterPopup = () => setShowNewsletterPopup(false);
+
   const handleBookEarlyAccess = () => {
     if (location.pathname === "/") {
-      // Already on homepage, just scroll to contact
       const contactSection = document.getElementById("contact");
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // Navigate to homepage first, then scroll to contact
       navigate("/");
       setTimeout(() => {
         const contactSection = document.getElementById("contact");
@@ -121,7 +128,7 @@ const ProfessionalFooter = () => {
     {
       label: "PHONE",
       text: "+44 20 3372 4223",
-      href: "tel:+442033724223",
+      href: "tel:+442033711063",
       icon: (
         <svg
           className="w-5 h-5"
@@ -157,9 +164,66 @@ const ProfessionalFooter = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubscribe = () => {
-    console.log("Subscribed:", email);
-    setEmail("");
+  // Email validation function
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Replace with your Web3Forms access key (same as contact form)
+  const WEB3FORMS_ACCESS_KEY = "0ad492f9-0115-4b44-903b-0fdf52fa09d3";
+
+  const handleSubscribe = async () => {
+    // Clear previous error
+    setEmailError("");
+
+    // Validate email
+    if (!email.trim()) {
+      setEmailError("Please enter your email address");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
+    setIsLoading(true);
+
+    // Prepare data for Web3Forms
+    const submitData = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: "New Newsletter Subscription! 🎉",
+      from_name: "AI Workforce Newsletter",
+      "Subscriber Email": email,
+      "Subscription Type": "Newsletter",
+      "Subscribed At": new Date().toLocaleString(),
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(submitData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setShowNewsletterPopup(true);
+        setEmail("");
+      } else {
+        throw new Error(result.message || "Subscription failed");
+      }
+    } catch (err) {
+      console.error("Newsletter subscription failed:", err);
+      setEmailError("Failed to subscribe. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -209,38 +273,200 @@ const ProfessionalFooter = () => {
                   <input
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError("");
+                    }}
                     placeholder="Enter your email address"
-                    className="w-full px-5 py-4 rounded-xl text-gray-900 bg-white border border-gray-200 focus:border-blue-500 focus:outline-none transition-all duration-300 text-base"
+                    className={`w-full px-5 py-4 rounded-xl text-gray-900 bg-white border ${
+                      emailError ? "border-red-500" : "border-gray-200"
+                    } focus:border-blue-500 focus:outline-none transition-all duration-300 text-base`}
                   />
+                  {emailError && (
+                    <p className="text-red-500 text-sm text-left">
+                      {emailError}
+                    </p>
+                  )}
                   <button
                     onClick={handleSubscribe}
-                    className="w-auto self-start bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300"
+                    disabled={isLoading}
+                    className="w-auto self-start bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center"
                   >
-                    Subscribe
+                    {isLoading ? (
+                      <>
+                        <svg
+                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Subscribing...
+                      </>
+                    ) : (
+                      "Subscribe"
+                    )}
                   </button>
                 </div>
 
                 {/* Desktop: Inline layout */}
-                <div className="hidden md:block relative">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="w-full px-6 py-4 pr-36 rounded-2xl text-gray-900 bg-white border-2 border-blue-500 focus:border-blue-600 focus:outline-none transition-all duration-300 text-base"
-                  />
-                  <button
-                    onClick={handleSubscribe}
-                    className="absolute right-1.5 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-2xl font-semibold transition-all duration-300"
-                  >
-                    Subscribe
-                  </button>
+                <div className="hidden md:block">
+                  <div className="relative">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setEmailError("");
+                      }}
+                      placeholder="Enter your email address"
+                      className={`w-full px-6 py-4 pr-36 rounded-2xl text-gray-900 bg-white border-2 ${
+                        emailError ? "border-red-500" : "border-blue-500"
+                      } focus:border-blue-600 focus:outline-none transition-all duration-300 text-base`}
+                    />
+                    <button
+                      onClick={handleSubscribe}
+                      disabled={isLoading}
+                      className="absolute right-1.5 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white px-6 py-2.5 rounded-2xl font-semibold transition-all duration-300 flex items-center"
+                    >
+                      {isLoading ? (
+                        <>
+                          <svg
+                            className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                          Subscribing...
+                        </>
+                      ) : (
+                        "Subscribe"
+                      )}
+                    </button>
+                  </div>
+                  {emailError && (
+                    <p className="text-red-500 text-sm text-left mt-2">
+                      {emailError}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Newsletter Success Popup */}
+        {showNewsletterPopup && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center shadow-2xl animate-scale-in">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg
+                  className="w-8 h-8 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <h3
+                className="text-2xl font-bold text-gray-900 mb-4"
+                style={{ fontFamily: "DM Sans" }}
+              >
+                Thank you for subscribing to our newsletter!
+              </h3>
+              <p
+                className="text-gray-600 mb-6"
+                style={{ fontFamily: "DM Sans" }}
+              >
+                You'll now receive the latest news, upcoming launch dates, and
+                feature updates directly in your inbox.
+              </p>
+              <button
+                onClick={closeNewsletterPopup}
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                style={{ fontFamily: "DM Sans" }}
+              >
+                Got it!
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Contact Form Success Popup */}
+        {showPopup && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center shadow-2xl animate-scale-in">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg
+                  className="w-8 h-8 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <h3
+                className="text-2xl font-bold text-gray-900 mb-4"
+                style={{ fontFamily: "DM Sans" }}
+              >
+                We have received your request!
+              </h3>
+              <p
+                className="text-gray-600 mb-6"
+                style={{ fontFamily: "DM Sans" }}
+              >
+                Thank you for contacting AI Workforce. We'll get back to you
+                within 24 hours.
+              </p>
+              <button
+                onClick={closePopup}
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                style={{ fontFamily: "DM Sans" }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* MAIN FOOTER CONTENT */}
         <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-20 w-full px-4 sm:px-6 lg:px-12 py-12 md:py-20">
@@ -287,7 +513,6 @@ const ProfessionalFooter = () => {
                     </Link>
                   </li>
                 ))}
-                {/* Book for Early Access - separate button */}
                 <li>
                   <button
                     onClick={handleBookEarlyAccess}
@@ -385,6 +610,22 @@ const ProfessionalFooter = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scale-in {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-scale-in {
+          animation: scale-in 0.3s ease-out;
+        }
+      `}</style>
     </footer>
   );
 };
