@@ -127,7 +127,7 @@ const ProfessionalFooter = () => {
     },
     {
       label: "PHONE",
-      text: "+44 20 3372 4223",
+      text: "+442033711063",
       href: "tel:+442033711063",
       icon: (
         <svg
