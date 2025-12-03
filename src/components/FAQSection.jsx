@@ -55,8 +55,7 @@ const CategorizedFAQSection = () => {
           "AI Workforce is built for anyone who wants to get more done without the stress of doing it all manually. Solo users gain a full-time digital assistant that boosts productivity, while teams benefit from smarter automation and seamless coordination. Our tools are designed for 'one-person teams' and hands-on leaders who wear multiple hats — from converting leads and managing outreach to creating SEO content, handling emails, and recording meetings.",
       },
       {
-        question:
-          "How is AI Workforce different from competitors like Reply.io and Alta?",
+        question: "How Is AI Workforce different?",
         answer:
           "AI Workforce is more than just sales automation — it's a fully custom-coded ecosystem of specialized AI agents built to run your sales, marketing, and day-to-day operations 24/7. Instead of a single-purpose assistant, you get a connected team with strong UK and US data accuracy, seamless integration, and always-on automation. Each agent is 100% custom-built to your business, trained on your workflows, preferences, and tone, with a dedicated Account Manager for support.",
       },
