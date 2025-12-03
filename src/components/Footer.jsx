@@ -19,22 +19,57 @@ const ProfessionalFooter = () => {
   const closePopup = () => setShowPopup(false);
   const closeNewsletterPopup = () => setShowNewsletterPopup(false);
 
+  // const handleBookEarlyAccess = () => {
+  //   if (location.pathname === "/") {
+  //     window.location.hash = "contact"; // instantly jumps to section
+  //   } else {
+  //     navigate("/#contact"); // instantly loads homepage & jumps to section
+  //   }
+  // };
+
   const handleBookEarlyAccess = () => {
     if (location.pathname === "/") {
-      const contactSection = document.getElementById("contact");
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "instant" });
+      const section = document.getElementById("contact");
+      if (section) {
+        section.scrollIntoView({ behavior: "auto" });
+
+        // Remove hash after scroll
+        window.history.replaceState(null, "", "/");
       }
     } else {
-      navigate("/");
-      setTimeout(() => {
-        const contactSection = document.getElementById("contact");
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 500);
+      navigate("/#contact");
     }
   };
+
+  // const handleBookEarlyAccess = () => {
+  //   if (location.pathname === "/") {
+  //     // Already on landing page → manually jump
+  //     const contactSection = document.getElementById("contact");
+  //     if (contactSection) {
+  //       contactSection.scrollIntoView({ behavior: "auto" });
+  //     }
+  //   } else {
+  //     // Coming from another page → navigate to /#contact
+  //     navigate("/#contact");
+  //   }
+  // };
+
+  // const handleBookEarlyAccess = () => {
+  //   if (location.pathname === "/") {
+  //     const contactSection = document.getElementById("contact");
+  //     if (contactSection) {
+  //       contactSection.scrollIntoView({ behavior: "instant" });
+  //     }
+  //   } else {
+  //     navigate("/");
+  //     setTimeout(() => {
+  //       const contactSection = document.getElementById("contact");
+  //       if (contactSection) {
+  //         contactSection.scrollIntoView({ behavior: "instant" });
+  //       }
+  //     }, 500);
+  //   }
+  // };
 
   const footerLinks = {
     UsefulLinks: [

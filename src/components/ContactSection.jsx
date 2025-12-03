@@ -158,7 +158,7 @@ const ContactSection = () => {
     <>
       <section
         id="contact"
-        className="py-12 md:py-20 bg-[#4B5DDB] relative overflow-hidden"
+        className="py-12 md:py-25 bg-[#4B5DDB] relative overflow-hidden"
         style={{ fontFamily: "DM Sans" }}
       >
         <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-38">
