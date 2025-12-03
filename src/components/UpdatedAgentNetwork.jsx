@@ -116,10 +116,10 @@ const agentsData = [
   },
   {
     id: "cold-inbound",
-    title: "Cold Inbound Agent",
+    title: "Call Outreach Agent",
     subtitle: "Email & Messaging Automation",
     briefDescription:
-      "The Cold Inbound Agent builds effective multi-channel workflows with high deliverability, using added domains, templates, and Email, Telegram, or WhatsApp to streamline bulk outreach and strengthen your touchpoint strategy.",
+      "The Call Outreach Agent builds effective multi-channel workflows with high deliverability, using added domains, templates, and Email, Telegram, or WhatsApp to streamline bulk outreach and strengthen your touchpoint strategy.",
     features: [
       {
         title: "Multi-Channel Outreach Made Easy",
@@ -396,20 +396,20 @@ const DesktopAgentCard = ({ agent, index, image }) => {
   const isImageLeft = index % 2 === 1;
 
   const ContentSection = () => (
-    <div className="p-8 xl:p-10 flex flex-col text-left justify-center w-full h-[29rem]">
-      <h3 className="text-[1.75rem] font-bold text-gray-900 mb-3 leading-tight">
+    <div className="p-8 xl:p-10 flex flex-col text-left justify-center w-full h-[35rem]">
+      <h3 className="text-[1.85rem] font-bold text-gray-900 mb-3 leading-tight">
         {agent.title}
       </h3>
-      <p className="text-[0.95rem] text-gray-600 leading-relaxed mb-6">
+      <p className="text-[1rem] text-gray-600 leading-relaxed mb-6">
         {agent.briefDescription}
       </p>
       <div className="grid grid-cols-2 gap-3 mb-6">
         {agent.features.map((feature, idx) => (
           <div key={idx} className="bg-white rounded-lg p-3.5">
-            <h4 className="text-sm font-bold text-gray-900 mb-1">
+            <h4 className="text-[0.95rem] font-bold text-gray-900 mb-1">
               {feature.title}
             </h4>
-            <p className="text-xs text-gray-500 leading-relaxed">
+            <p className="text-[0.85rem] text-gray-500 leading-relaxed">
               {feature.description}
             </p>
           </div>
@@ -444,7 +444,7 @@ const DesktopAgentCard = ({ agent, index, image }) => {
       style={{
         fontFamily: "DM Sans",
         backgroundColor: agent.cardBgColor || "#F4F4F6",
-        height: "480px",
+        height: "550px",
       }}
     >
       <div className="grid grid-cols-2 h-full">
@@ -507,9 +507,9 @@ const UpdateAgentsNetwork = () => {
       </div>
 
       {/* Desktop Version - With scroll animation */}
-      <div
+      {/* <div
         className="hidden lg:block relative"
-        style={{ height: `${(agentsData.length + 2) * 170}vh` }}
+        // style={{ height: `${(agentsData.length + 2) * 170}vh` }}
       >
         <div className="sticky top-10 h-screen overflow-hidden">
           <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -524,119 +524,48 @@ const UpdateAgentsNetwork = () => {
             </div>
 
             <div className="relative mx-auto w-full h-[520px]">
-              {agentsData.map((agent, index) => {
-                const cardHeight = 100;
-                const startScroll =
-                  (index * cardHeight) / (agentsData.length * 100);
-                const peakScroll =
-                  ((index + 0.5) * cardHeight) / (agentsData.length * 100);
-                const endScroll =
-                  ((index + 2.5) * cardHeight) / (agentsData.length * 100);
-
-                const y = useTransform(
-                  scrollYProgress,
-                  [
-                    Math.max(0, startScroll - 0.1),
-                    startScroll,
-                    peakScroll,
-                    peakScroll + 0.1,
-                    endScroll,
-                    Math.min(1, endScroll + 0.1),
-                  ],
-                  [
-                    typeof window !== "undefined" ? window.innerHeight : 800,
-                    typeof window !== "undefined"
-                      ? window.innerHeight * 0.3
-                      : 240,
-                    0,
-                    -50,
-                    -50,
-                    -150,
-                  ]
-                );
-
-                const scale = useTransform(
-                  scrollYProgress,
-                  [
-                    Math.max(0, startScroll - 0.05),
-                    peakScroll - 0.05,
-                    peakScroll,
-                    peakScroll + 0.05,
-                    endScroll,
-                    Math.min(1, endScroll + 0.1),
-                  ],
-                  [0.85, 0.95, 1, 0.95, 0.85, 0.75]
-                );
-
-                const scaleY = useTransform(
-                  scrollYProgress,
-                  [
-                    peakScroll,
-                    peakScroll + 0.05,
-                    endScroll,
-                    Math.min(1, endScroll + 0.1),
-                  ],
-                  [1, 0.9, 0.7, 0.5]
-                );
-
-                const opacity = useTransform(
-                  scrollYProgress,
-                  [
-                    Math.max(0, startScroll - 0.1),
-                    startScroll,
-                    peakScroll - 0.02,
-                    peakScroll + 0.02,
-                    endScroll,
-                    Math.min(1, endScroll + 0.1),
-                  ],
-                  [1, 1, 1, 1, 1, 1]
-                );
-
-                const zIndex = useTransform(
-                  scrollYProgress,
-                  [startScroll - 0.1, startScroll, peakScroll, endScroll],
-                  [
-                    1000 - index * 10,
-                    1000 - index * 10,
-                    1000 - index * 10,
-                    10 + index,
-                  ]
-                );
-
-                const rotateX = useTransform(
-                  scrollYProgress,
-                  [
-                    Math.max(0, startScroll - 0.1),
-                    peakScroll,
-                    Math.min(1, endScroll + 0.1),
-                  ],
-                  [-5, 0, 0]
-                );
-
-                return (
-                  <motion.div
-                    key={agent.id}
-                    style={{
-                      position: "absolute",
-                      width: "100%",
-                      y,
-                      scale,
-                      scaleY,
-                      opacity,
-                      zIndex,
-                      rotateX,
-                      perspective: 1000,
-                    }}
-                  >
-                    <DesktopAgentCard
-                      agent={agent}
-                      index={index}
-                      image={agentImages[index]}
-                    />
-                  </motion.div>
-                );
-              })}
+              {agentsData.map((agent, index) => (
+                <div
+                  key={agent.id}
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                  }}
+                >
+                  <DesktopAgentCard
+                    agent={agent}
+                    index={index}
+                    image={agentImages[index]}
+                  />
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </div> */}
+      {/* Desktop Version - Static layout */}
+      <div className="hidden lg:block relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center mb-12">
+            <div className="inline-block px-6 py-3 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium mb-5">
+              Meet your AI Workforce
+            </div>
+            <p className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+              Recruit enterprise-grade AI agents today{" "}
+              <span className="text-blue-600">fully customisable</span>
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-15 h-full w-full">
+            {agentsData.map((agent, index) => (
+              <div key={agent.id}>
+                <DesktopAgentCard
+                  agent={agent}
+                  index={index}
+                  image={agentImages[index]}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
